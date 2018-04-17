@@ -1,22 +1,9 @@
-""" Write a Python program called api_test.py that gives the user the ability to perform two
-    simple operations from the command line using one of your APIs:
+"""
+api_test.py
+Liz Nichols 04/16
 
-    (1) get a list of things, and
-    (2) get details about a single thing.
-
-    For example, suppose you were using an API about the US Senate. You might allow the user to
-    (1) get a list of all senators and
-    (2) given a senator's name (or ID number, or whatever the API uses to uniquely identify a senator),
-    print detailed information about that senator.
-
-    import requests
-
-url = "http://pokeapi.co/api/v2/pokemon/bulbasaur/"
-
-payload = ""
-response = requests.request("GET", url, data=payload)
-
-data = response.json()
+to run from the command line specify either list or "specify" and then a pokemon ability
+accesses poke api to return information about pokemon abilities
 """
 import requests
 import argparse
