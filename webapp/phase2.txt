@@ -1,0 +1,19 @@
+Chiraag Gohel, Sharan Ganjam Seshachallam, Liz Nichols
+
+Our dataset is Job Patterns For Minorities And Women In Private Industry, 2015 EEO-1 NAICS-3 Aggregate Report
+
+https://catalog.data.gov/dataset/job-patterns-for-minorities-and-women-in-private-industry-2015-eeo-1-naics-3-aggregate-rep
+
+This CSV dataset is an aggregate of employment data among minorities and women compiled by the US Equal Employment Opportunity Commission. A variety of occupations branched under different industries are indexed according to NAICS-3 (North American Industry Classification System, from the US Census Bureau).
+
+User Stories:
+
+As a scholar, I want data on gender equity in various industries so I can comment on correlations and draw conclusions.
+
+As a scholar, I want data on ethnic and/or racial distributions in the industrial world so I can comment on correlations and draw conclusions.
+
+As a scholar, I want intersectional data on gender and racial equity in the industrial world to comment on correlations and draw conclusions regarding the effects of such identities on career trends.
+
+As a person in the commercial workforce, I want data on gender/ethnic equity in the industrial world so I can educate myself on how people who share my identities fare in the national labor economy.
+
+As a employer in a particular industry, I want data on gender/ethnic equity in the industrial world so I can understand the demographic trends of my industry.
