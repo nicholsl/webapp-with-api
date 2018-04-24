@@ -1,0 +1,96 @@
+Liz Nichols, Chiraag Gohel, Sharan Ganjam Seshachallam
+
+User Stories:
+
+As a scholar, I want data on gender equity in various industries so I can comment on correlations and draw conclusions.
+ endpoints: /identities or /identities/<identity_id>
+ with get parameters for gender
+
+
+As a scholar, I want data on ethnic and/or racial distributions in the industrial world so I can comment on correlations and draw conclusions.
+ endpoints: /identities or /identities/<identity_id>
+ with get parameters for race
+
+As a scholar, I want intersectional data on gender and racial equity in the industrial world to comment on correlations and draw conclusions regarding the effects of such identities on career trends.
+ endpoints: /industries or /industries/<industry_id>
+
+As a person in the commercial workforce, I want data on gender/ethnic equity in the industrial world so I can educate myself on how people who share my identities fare in the national labor economy.
+ endpoints: /identities or /identities/<identity_id>
+
+As a employer in a particular industry, I want data on gender/ethnic equity in the industrial world so I can understand the demographic trends of my industry.
+ endpoints: /industries/<industry_id>
+
+As a scholar I want to know the racial distribution of the corporate hierarchy
+ endpoints: /positions and /positions/<positions_id>
+
+
+
+API endpoints (as of now):
+
+    Endpoint: /industries
+    Summary: Returns the complete list of all industries contained in the database.
+    Response format: a JSON list of industry dictionaries. Each industry dictionary will have keys “id”, “proper_name” and “category”. A response to a query like this is as follows:
+    [ 
+        {“id”: 111, “proper_name”: “Crop Production”,”category”: “Agriculture, Forestry, Fishing and Hunting”},
+         {“id”: 112, “proper_name”: “Animal Production and Aquaculture”,”category”: “Agriculture, Forestry, Fishing and Hunting”},
+        …
+        {“id”: 928, “proper_name”: “National Security and International Affairs”,”category”: “Public Administration”},
+    ]
+    Endpoint: /industries/<industry_id>
+    Summary: Returns all information in the database related to the industry with the specific ID. The ID can be 2-digit or 3-digit; if the former, a list of all subsumed industry codes under the 2-digit ID is returned.
+    Response format: a JSON dictionary with keys. It will contain the keys  “id”, “proper_name”, “category” and “details”. The “details” key holds a list of statistical information dictionaries. Each statistical information dictionary will have keys “TOTAL_UNITS”, “TOTAL1”, “TOTAL2” …, “MT1”…, “FT1”…, “WHT1”…, “WHM1”…, “WHF1”… and so on for all the different ethnic identities in the database. All the values under these keys will be expressed as raw numbers.
+    Also, these keys refer to different categories in the database - as they pertain to race, gender and occupational statistics.
+    A response to a query like /industries/111 is as follows:
+    {“id”: 111, “proper_name”: “Crop Production”,”category”: “Agriculture, Forestry, Fishing and Hunting”, 
+    “details”: [
+        {“TOTAL_UNITS”: 580 , “TOTAL1”: 6104, “TOTAL2”:  7659, …, “MT1”: 4184, …, “FT1”: 1920, …, “WHT1”: 1568, …, “WHM1”: 1288, …, “WHF1”: 280, …},
+        …
+        ]
+    }
+
+Endpoint: /identities
+
+Summary: Returns the complete list of identities contained in the database
+
+Response format: a JSON list of identity dictionaries. Each identity dictionary will have keys "id","identity", and "totals" which includes the total number contained in the survey (sum column 10)
+[
+    {"id": "MT", "identity": "Male", "total": 103427}
+    {"id": "BLKM", "identity: "Black Male", "total": 3459}
+...
+]
+
+Endpoint: /identity/<identity_id>
+
+Summary: Returns all information in the database related to a particular identity with a specified ID
+
+Response format: A JSON dictionary with keys "id", "identity", "total", and "industries". The "industry" value will be a list of industry dictionaries. Each industry dictionary will have keys "id", "industry", "total" "position_types", where "position_types" is a list of dictionaries with keys "id", "position_type", "number"
+
+{"id": "WHM", "identity": "White Male", "total": 3507, 
+    "industries":[
+          {"id":111, "industry": "Agriculture", "total": 107, "position_types": ["id": 1 , "position_type": "Senior Management", "number": 103}
+          {"id":112...
+     
+    ]
+}
+
+Endpoint: /positiontype
+
+Summary: Returns complete list of different position types in the data set
+Response Format: A JSON list of position type dictionaries. Each position type dictionary will have the keys, "id" and "name". 
+A typical response to query like this would be: 
+    [
+        {"id": 1, "name" = "Senior Officer"},
+        {"id": 6, "name" = "Craft Workers"},
+        ...
+    ]
+Endpoint: /position/<position_id> 
+
+Summary: Returns complete list of number of individuals from each identity group within a singular position id
+Response Format: A JSON list of identity number dictionaries. 
+Each identity type dictionary will have the keys, 
+"TOTAL(id)", "MT(id)", "FT(id)", "WHT(id)", "WHM(id)", "WHF(id)", "BLK(id)" ... and so on for all identities.
+A typical response to a query of this type will look like
+    [
+        {"TOTAL4" = 456783, "MT4" = 324953, "FT4" = 131830, ... , and so on for all identities.}
+    ]
+
