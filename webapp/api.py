@@ -39,16 +39,25 @@ movies = [
 def hello():
     return 'Hello, Citizen of CS257.'
 
-@app.route('/actor/<last_name>')
-def get_actor(last_name):
-    ''' Returns the first matching actor, or an empty dictionary if there's no match. '''
-    actor_dictionary = {}
+@app.route('/industries')
+def industries():
+    ''' Returns the complete list of all industries contained in the database.
+    Response format: a JSON list of industry dictionaries. Each industry dictionary will have keys “id”, “proper_name” and “category”. A response to a query like this is as follows:
+    '''
+    industry_dictionary = {}
     lower_last_name = last_name.lower()
-    for actor in actors:
-        if actor['last_name'].lower().startswith(lower_last_name):
-            actor_dictionary = actor
+    for industry in industries:
+            industry_dictionary = industry
             break
-    return json.dumps(actor_dictionary)
+    return json.dumps(industry_dictionary)
+
+@app.route('/industries/<industry_id>')
+def industries(industry_id):
+    '''Summary: Returns all information in the database related to the
+       industry with the specific ID. The ID can be 2-digit or 3-digit;
+       if the former, a list of all subsumed industry codes under the 2-digit
+       ID is returned.
+    '''
 
 @app.route('/movies')
 def get_movies():
