@@ -260,7 +260,7 @@ CREATE TABLE race_codes (
     description, string
 );
  
-CREATE TABLE master(
+CREATE TABLE jobs(
 	JOB_ID INT	
 	JOB_NAME VARCHAR (50)
 );	
