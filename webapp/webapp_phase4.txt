@@ -12,7 +12,6 @@ CREATE TABLE master (
     HISPT10 integer,
     HISPM10 integer,
     HISPF10 integer,
-    HISPF1_2 integer,
     ASIANT10 integer,
     ASIANM10 integer,
     ASIANF10 integer,
