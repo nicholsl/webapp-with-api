@@ -20,42 +20,61 @@ import re
 import csv
 
 
-with open('year15_nac2.csv','r', newline='') as dataset:
-    reader = csv.DictReader(dataset)
-    otherReader = csv.reader(dataset)
-    dataset_file_array = []
-    # for row in reader:
-    #     # print(row)
-    #     dataset_file_array.append(row)
-    # print(dataset_file_array)
-    i=0
-    with open("mastertable2.csv",'w') as master:
-        keyslist = []
-        for row in reader:
-            dataset_file_array.append(row)
-            for item in row:
-                if "10" in item and item not in keyslist:
-                    keyslist.append(item)
-                    # master.write(row[item]+",")
-                elif item == "NAC2_code" and item not in keyslist:
-                    keyslist.append(item)
-                    # master.write(row[item]+",")
+# with open('year15_nac2.csv','r', newline='') as dataset:
+#     reader = csv.DictReader(dataset)
+#     otherReader = csv.reader(dataset)
+#     dataset_file_array = []
+#     # for row in reader:
+#     #     # print(row)
+#     #     dataset_file_array.append(row)
+#     # print(dataset_file_array)
+#     i=0
+#     with open("mastertable2.csv",'w') as master:
+#         keyslist = []
+#         for row in reader:
+#             dataset_file_array.append(row)
+#             for item in row:
+#                 if "10" in item and item not in keyslist:
+#                     keyslist.append(item)
+#                     # master.write(row[item]+",")
+#                 elif item == "NAC2_code" and item not in keyslist:
+#                     keyslist.append(item)
+#                     # master.write(row[item]+",")
+#
+#
+#         print(keyslist)
+#
+#         for item in keyslist:
+#             master.write(item+",")
+#         master.write("\n")
+#         for row in dataset_file_array:
+#             print(row)
+#             for item in keyslist:
+#                 print(row[item])
+#                 master.write(row[item]+",")
+#             master.write("\n")
+#
+#             # master.write(item+","+str(i) + "\n")
+#             # i+=1
+
+with open("datadictionary.csv","r+") as datadict:
+    datadictReader = csv.DictReader(datadict)
+    with open("raceCodes.csv","w") as raceCodes:
+        for row in datadictReader:
+            if "10" in row["Varaible NAME"]:
+                code = row["LABEL"].replace(" TOTAL","")
+                if "/" in code:
+                    code = code.split("/")
+                    print(code)
+                    if len(code)>2:
+                        code = code[1]+"_"+code[2]
+                    else:
+                        code = code[1]
+
+                abbrev = row["Varaible NAME"].replace("10","")
+                raceCodes.write(abbrev+","+code+"\n")
 
 
-        print(keyslist)
-
-        for item in keyslist:
-            master.write(item+",")
-        master.write("\n")
-        for row in dataset_file_array:
-            print(row)
-            for item in keyslist:
-                print(row[item])
-                master.write(row[item]+",")
-            master.write("\n")
-
-            # master.write(item+","+str(i) + "\n")
-            # i+=1
 
 
 
