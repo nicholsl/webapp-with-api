@@ -58,6 +58,8 @@ def industries(industry_id):
        if the former, a list of all subsumed industry codes under the 2-digit
        ID is returned.
     '''
+    industry_list = []
+    
 
 @app.route('/movies')
 def get_movies():
