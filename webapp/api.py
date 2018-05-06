@@ -62,7 +62,7 @@ def get_industries():
     Refer the industrycodes table for details.
     Returns an empty list if there's any database failure.
     '''
-    query = '''SELECT * FROM industrycodes ORDER BY industry'''
+    query = '''SELECT * FROM jobs ORDER BY industry'''
 
     industry_list = []
 
@@ -160,29 +160,29 @@ def get_identity_by_id(identity_id):
     Returns an empty dictionary if there's any database failure.
     '''
     query = '''SELECT CASE identity_id
-               WHEN 'TOTAL10' THEN TOTAL10
-               WHEN 'MT10' THEN MT10
-               WHEN 'FT10' THEN FT10
-               WHEN 'WHT10' THEN WHT10
-               WHEN 'WHM10' THEN WHM10
-               WHEN 'WHF10' THEN WHF10
-               WHEN 'BLK10' THEN BLKT10
-               WHEN 'BLKM10' THEN BLKM10
-               WHEN 'BLKF10' THEN BLKF10
-               WHEN 'HISPT10' THEN HISPT10
-               WHEN 'HISPM10' THEN HISPM10
-               WHEN 'HISPF10' THEN HISPF10
-               WHEN 'ASIANT10' THEN ASIANT10
-               WHEN 'ASIANM10' THEN ASIANM10
-               WHEN 'ASIANF10' THEN ASIANF10
-               WHEN 'AIANT10' THEN AIANT10
-               WHEN 'AIANM10' THEN AIANM10
-               WHEN 'AIANF10' THEN AIANF10
-               WHEN 'nhopi10' THEN nhopiT10
-               WHEN 'NHOPIM10' THEN NHOPIM10
-               WHEN 'NHOPIF10' THEN NHOPIF10
-               WHEN 'tomrT10' THEN tomrT10
-               WHEN 'TOMRM10' THEN TOMRM10
+               WHEN 'TOTAL' THEN TOTAL10
+               WHEN 'MT' THEN MT10
+               WHEN 'FT' THEN FT10
+               WHEN 'WHT' THEN WHT10
+               WHEN 'WHM' THEN WHM10
+               WHEN 'WHF' THEN WHF10
+               WHEN 'BLK' THEN BLKT10
+               WHEN 'BLKM' THEN BLKM10
+               WHEN 'BLKF' THEN BLKF10
+               WHEN 'HISPT' THEN HISPT10
+               WHEN 'HISPM' THEN HISPM10
+               WHEN 'HISPF' THEN HISPF10
+               WHEN 'ASIANT' THEN ASIANT10
+               WHEN 'ASIANM' THEN ASIANM10
+               WHEN 'ASIANF' THEN ASIANF10
+               WHEN 'AIANT' THEN AIANT10
+               WHEN 'AIANM' THEN AIANM10
+               WHEN 'AIANF' THEN AIANF10
+               WHEN 'nhopi' THEN nhopiT10
+               WHEN 'NHOPIM' THEN NHOPIM10
+               WHEN 'NHOPIF' THEN NHOPIF10
+               WHEN 'tomrT' THEN tomrT10
+               WHEN 'TOMRM' THEN TOMRM10
                ELSE null
                FROM mastertable2
                WHERE identity_id = %s'''
