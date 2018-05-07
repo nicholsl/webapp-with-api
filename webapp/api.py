@@ -62,7 +62,7 @@ def get_industries():
     Refer the industrycodes table for details.
     Returns an empty list if there's any database failure.
     '''
-    query = '''SELECT * FROM jobs ORDER BY industry'''
+    query = '''SELECT * FROM jobs ORDER BY job_name'''
 
     industry_list = []
 
@@ -93,7 +93,7 @@ def get_industry_by_id(industry_id):
     in the specific industry in our database.
     Returns an empty dictionary if there's any database failure.
     '''
-    query = '''SELECT * FROM mastertable2 WHERE NAC2_code = %s'''
+    query = '''SELECT * FROM master WHERE NAC2_code = %s'''
 
     data_industry = {}
     connection = get_connection()
@@ -159,7 +159,7 @@ def get_identity_by_id(identity_id):
     These will just be integers.
     Returns an empty dictionary if there's any database failure.
     '''
-    query = '''SELECT CASE identity_id
+    query = '''SELECT CASE id
                WHEN 'TOTAL' THEN TOTAL10
                WHEN 'MT' THEN MT10
                WHEN 'FT' THEN FT10
@@ -184,7 +184,7 @@ def get_identity_by_id(identity_id):
                WHEN 'tomrT' THEN tomrT10
                WHEN 'TOMRM' THEN TOMRM10
                ELSE null
-               FROM mastertable2
+               FROM master
                WHERE identity_id = %s'''
     identity_data = {}
     connection = get_connection()
