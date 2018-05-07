@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 '''
-    webapp_api.py
+    webapp/api.py
     Liz Nichols, Chiraag Gohel, Sharan GS, 4 May 2018
     Flask app implementation of our "employment data by race and gender" API.
     Modified from Jeff Ondich's books_api.py for the "authors and books" API.
@@ -93,7 +93,7 @@ def get_industry_by_id(industry_id):
     in the specific industry in our database.
     Returns an empty dictionary if there's any database failure.
     '''
-    query = '''SELECT * FROM master WHERE NAC2_code = %s'''
+    query = '''SELECT * FROM master WHERE jobid = %s'''
 
     data_industry = {}
     connection = get_connection()
@@ -159,30 +159,30 @@ def get_identity_by_id(identity_id):
     These will just be integers.
     Returns an empty dictionary if there's any database failure.
     '''
-    query = '''SELECT CASE id
-               WHEN 'TOTAL' THEN TOTAL10
-               WHEN 'MT' THEN MT10
-               WHEN 'FT' THEN FT10
-               WHEN 'WHT' THEN WHT10
-               WHEN 'WHM' THEN WHM10
-               WHEN 'WHF' THEN WHF10
-               WHEN 'BLK' THEN BLKT10
-               WHEN 'BLKM' THEN BLKM10
-               WHEN 'BLKF' THEN BLKF10
-               WHEN 'HISPT' THEN HISPT10
-               WHEN 'HISPM' THEN HISPM10
-               WHEN 'HISPF' THEN HISPF10
-               WHEN 'ASIANT' THEN ASIANT10
-               WHEN 'ASIANM' THEN ASIANM10
-               WHEN 'ASIANF' THEN ASIANF10
-               WHEN 'AIANT' THEN AIANT10
-               WHEN 'AIANM' THEN AIANM10
-               WHEN 'AIANF' THEN AIANF10
-               WHEN 'nhopi' THEN nhopiT10
-               WHEN 'NHOPIM' THEN NHOPIM10
-               WHEN 'NHOPIF' THEN NHOPIF10
-               WHEN 'tomrT' THEN tomrT10
-               WHEN 'TOMRM' THEN TOMRM10
+    query = '''SELECT CASE identity_id
+               WHEN 'TOTAL' THEN total10
+               WHEN 'MT' THEN mt10
+               WHEN 'FT' THEN ft10
+               WHEN 'WHT' THEN wht10
+               WHEN 'WHM' THEN whm10
+               WHEN 'WHF' THEN whf10
+               WHEN 'BLK' THEN blkT10
+               WHEN 'BLKM' THEN blkm10
+               WHEN 'BLKF' THEN blkf10
+               WHEN 'HISPT' THEN hispt10
+               WHEN 'HISPM' THEN hispm10
+               WHEN 'HISPF' THEN hispf10
+               WHEN 'ASIANT' THEN asian10
+               WHEN 'ASIANM' THEN asianm10
+               WHEN 'ASIANF' THEN asianf10
+               WHEN 'AIANT' THEN aiant10
+               WHEN 'AIANM' THEN aianm10
+               WHEN 'AIANF' THEN aianf10
+               WHEN 'nhopi' THEN nhopit10
+               WHEN 'NHOPIM' THEN nhopim10
+               WHEN 'NHOPIF' THEN nhopif10
+               WHEN 'tomrT' THEN tomrt10
+               WHEN 'TOMRM' THEN tomrm10
                ELSE null
                FROM master
                WHERE identity_id = %s'''
