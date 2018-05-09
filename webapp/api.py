@@ -83,7 +83,7 @@ def get_industries():
 
 
 
-@app.route('/industry/<industry_id>')
+@app.route('/industries/<industry_id>')
 def get_industry_by_id(industry_id):
     '''
     Returns the industry data resource holding the specified industry id.
@@ -152,7 +152,7 @@ def get_identities():
 
     return json.dumps(identity_list)
     
-@app.route('/identity/<identity_id>')
+@app.route('/identities/<identity_id>')
 def get_identity_by_id(identity_id):
     '''
     Returns the data entried under the specified identity id.
