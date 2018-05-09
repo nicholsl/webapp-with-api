@@ -30,7 +30,7 @@ def get_connection():
                                       user=user,
                                       password=password)
     except Exception as e:
-        print(e, file=sys.stderr)
+        sys.stderr.write(e)
     return connection
 
 def get_select_query_results(connection, query, parameters=None):
@@ -77,7 +77,7 @@ def get_industries():
                           'industry':row[1]}
                 industry_list.append(industry)
         except Exception as e:
-            print(e, file=sys.stderr)
+            sys.stderr.write(e)
         connection.close()
     return json.dumps(industry_list)
 
@@ -121,7 +121,7 @@ def get_industry_by_id(industry_id):
                           'tomr_male':row[23]}
                           
         except Exception as e:
-            print(e, file=sys.stderr)
+            sys.stderr.write(e)
         connection.close()
 
     return json.dumps(data_industry)
@@ -147,7 +147,7 @@ def get_identities():
                 identity_list.append(identity)
 
         except Exception as e:
-            print(e, file=sys.stderr)
+            sys.stderr.write(e)
         connection.close()
 
     return json.dumps(identity_list)
@@ -159,33 +159,8 @@ def get_identity_by_id(identity_id):
     These will just be integers.
     Returns an empty dictionary if there's any database failure.
     '''
-    query = '''SELECT CASE identity_id
-               WHEN 'TOTAL' THEN total10
-               WHEN 'MT' THEN mt10
-               WHEN 'FT' THEN ft10
-               WHEN 'WHT' THEN wht10
-               WHEN 'WHM' THEN whm10
-               WHEN 'WHF' THEN whf10
-               WHEN 'BLK' THEN blkT10
-               WHEN 'BLKM' THEN blkm10
-               WHEN 'BLKF' THEN blkf10
-               WHEN 'HISPT' THEN hispt10
-               WHEN 'HISPM' THEN hispm10
-               WHEN 'HISPF' THEN hispf10
-               WHEN 'ASIANT' THEN asian10
-               WHEN 'ASIANM' THEN asianm10
-               WHEN 'ASIANF' THEN asianf10
-               WHEN 'AIANT' THEN aiant10
-               WHEN 'AIANM' THEN aianm10
-               WHEN 'AIANF' THEN aianf10
-               WHEN 'nhopi' THEN nhopit10
-               WHEN 'NHOPIM' THEN nhopim10
-               WHEN 'NHOPIF' THEN nhopif10
-               WHEN 'tomrT' THEN tomrt10
-               WHEN 'TOMRM' THEN tomrm10
-               ELSE null
-               FROM master
-               WHERE identity_id = %s'''
+
+    query = '''SELECT * FROM invertMaster WHERE id = %s'''        
     identity_data = {}
     connection = get_connection()
     if connection is not None:
@@ -193,9 +168,26 @@ def get_identity_by_id(identity_id):
             cursor = get_select_query_results(connection, query, (identity_id,))
             row = cursor.__next__()
             if row is not None:
-                identity_data = {'value':row[0]}
+                identity_data = {'id':row[0],
+                          '11':row[1],
+                          '21':row[2], '22':row[3],
+                          '23':row[4],
+                          '31':row[5], '32':row[6],
+                          '33':row[7],
+                          '42':row[8], '44':row[9],
+                          '45':row[10],
+                          '48':row[11], '49':row[12],
+                          '51':row[13],
+                          '52':row[14], '53':row[15],
+                          '54':row[16],
+                          '55':row[17], '56':row[18],
+                          '61':row[19],
+                          '62':row[20], '71':row[21],
+                          '72':row[22],
+                          '81':row[23], '91':row[24]}
+                    
         except Exception as e:
-            print(e, file=sys.stderr)
+            sys.stderr.write(e)
         connection.close()
 
     return json.dumps(identity_data)
@@ -211,7 +203,7 @@ def help():
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
-        print('Usage: {0} host port'.format(sys.argv[0]), file=sys.stderr)
+        sys.stderr.write('Usage: {0} host port'.format(sys.argv[0]))
         exit()
 
     host = sys.argv[1]
