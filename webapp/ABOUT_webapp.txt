@@ -1,0 +1,4 @@
+
+This project allows you to sift through employment statistics collected from the US <>. We seek to make apparent dissimilarities in employment based on gender and race identity in the US, across a variety of government recognized industrial sectors. 
+
+Click on either industries or identities to begin.
