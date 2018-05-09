@@ -30,7 +30,7 @@ def get_connection():
                                       user=user,
                                       password=password)
     except Exception as e:
-        print(e, file=sys.stderr)
+        sys.stderr.write(e)
     return connection
 
 def get_select_query_results(connection, query, parameters=None):
@@ -77,13 +77,13 @@ def get_industries():
                           'industry':row[1]}
                 industry_list.append(industry)
         except Exception as e:
-            print(e, file=sys.stderr)
+            sys.stderr.write(e)
         connection.close()
     return json.dumps(industry_list)
 
 
 
-@app.route('/industry/<industry_id>')
+@app.route('/industries/<industry_id>')
 def get_industry_by_id(industry_id):
     '''
     Returns the industry data resource holding the specified industry id.
@@ -121,7 +121,7 @@ def get_industry_by_id(industry_id):
                           'tomr_male':row[23]}
                           
         except Exception as e:
-            print(e, file=sys.stderr)
+            sys.stderr.write(e)
         connection.close()
 
     return json.dumps(data_industry)
@@ -147,20 +147,20 @@ def get_identities():
                 identity_list.append(identity)
 
         except Exception as e:
-            print(e, file=sys.stderr)
+            sys.stderr.write(e)
         connection.close()
 
     return json.dumps(identity_list)
     
-@app.route('/identity/<identity_id>')
+@app.route('/identities/<identity_id>')
 def get_identity_by_id(identity_id):
     '''
     Returns the data entried under the specified identity id.
     These will just be integers.
     Returns an empty dictionary if there's any database failure.
     '''
-    query = '''SELECT * FROM invertMaster WHERE id = %s'''
-             
+
+    query = '''SELECT * FROM invertMaster WHERE id = %s'''        
     identity_data = {}
     connection = get_connection()
     if connection is not None:
@@ -187,7 +187,7 @@ def get_identity_by_id(identity_id):
                           '81':row[23], '91':row[24]}
                     
         except Exception as e:
-            print(e, file=sys.stderr)
+            sys.stderr.write(e)
         connection.close()
 
     return json.dumps(identity_data)
@@ -203,7 +203,7 @@ def help():
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
-        print('Usage: {0} host port'.format(sys.argv[0]), file=sys.stderr)
+        sys.stderr.write('Usage: {0} host port'.format(sys.argv[0]))
         exit()
 
     host = sys.argv[1]
