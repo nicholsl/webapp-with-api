@@ -1,0 +1,91 @@
+#sideleft{
+    background: #4B5267;
+    width: 200px;
+    height: 100%;
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    transition: left 0.3s linear;
+}
+
+#sideleft.visible{
+    left: 0px;
+    transition: left 0.3s linear;
+}
+#sidebar-btn{
+    display:inline-block;
+    vertical-align: middle;
+    width:20px;
+    height:15px;
+    cursor:pointer;
+    margin:20px;
+    position:absolute;
+    top:0px;
+    right:-60px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+ font-family: 'Oxygen', Sans-Serif;
+ font-size: 46px;;
+}
+
+#sidebar-btn span{
+    height:1px;
+    background:#111;
+    margin-bottom:5px;
+    display:block;
+}
+
+#sidebar-btn span:nth-child(2){
+    width:75%;
+}
+
+#sidebar-btn span:nth-child(3){
+    width:50%;
+}
+
+h3{
+font-size: 250%;
+text-align: left;
+color: #4B5267;
+margin:0px;
+margin-left: 20px;
+
+
+  position: relative;
+  top: 50%;
+  -webkit-transform: auto;
+  -ms-transform: auto;
+  transform: auto;
+}
+
+.btn-group button {
+    background-color: #4B5267; /* Green background */
+    border: none; /* Green border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    width: 100%; /* Set a width if needed */
+    display: block; /* Make the buttons appear below each other */
+    Font-Family: 'Noto Serif', Serif;
+    Font-Size: 16px;
+}
+
+.btn-group button:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: #EFDEE3;
+}
+
+body{
+    background-color:#EFDEE3;
+    font-family: 'Work Sans', sans-serif;
+}
+
+#header{
+    margin-left: 200px
+}
