@@ -35,5 +35,30 @@ CREATE TABLE jobs (
 	job_name text
 );	
 
-
-
+CREATE TABLE invertMaster (
+  id text,
+  aa integer,
+  ba integer,
+  bb integer,
+  bc integer,
+  ca integer,
+  cb integer,
+  cc integer,
+  db integer,
+  dd integer,
+  de integer,
+  dh integer,
+  di integer,
+  ea integer,
+  eb integer,
+  ec integer,
+  ed integer,
+  ee integer,
+  ef integer,
+  fa integer,
+  fb integer,
+  ga integer,
+  gb integer,
+  ha integer,
+  ib integer
+);
