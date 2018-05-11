@@ -50,6 +50,10 @@ def get_select_query_results(connection, query, parameters=None):
 def set_headers(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
+    
+@app.route("/")
+def index():
+	return """ Hello wurld """
 
 @app.route('/industries/') 
 def get_industries():
