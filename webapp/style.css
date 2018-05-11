@@ -60,6 +60,8 @@ margin-left: 20px;
   transform: auto;
 }
 
+
+
 .btn-group button {
     background-color: #4B5267; /* Green background */
     border: none; /* Green border */
@@ -78,7 +80,7 @@ margin-left: 20px;
 
 /* Add a background color on hover */
 .btn-group button:hover {
-    background-color: #EFDEE3;
+    background-color: #684551;
 }
 
 body{
