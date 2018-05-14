@@ -86,8 +86,14 @@ margin-left: 20px;
 body{
     background-color:#EFDEE3;
     font-family: 'Work Sans', sans-serif;
+
 }
 
 #header{
     margin-left: 200px
+}
+
+#abouttxt{
+  margin-left: 200px;
+  margin-top:150px;
 }
