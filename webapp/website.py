@@ -10,6 +10,14 @@
 '''
 import sys
 import flask
+import json
+import config
+import psycopg2
+
+from config import password
+from config import database
+from config import user
+
 
 app = flask.Flask(__name__, static_folder='static', template_folder='templates')
 

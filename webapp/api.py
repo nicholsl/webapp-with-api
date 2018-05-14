@@ -205,6 +205,11 @@ def help():
         rule_list.append(rule_text)
     return json.dumps(rule_list)
 
+@app.after_request
+def set_headers(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
+
 if __name__ == '__main__':
     if len(sys.argv) != 3:
         sys.stderr.write('Usage: {0} host port'.format(sys.argv[0]))
