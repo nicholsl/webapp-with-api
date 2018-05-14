@@ -1,7 +1,8 @@
 #sideleft{
     background: #4B5267;
     width: 200px;
-    height: 100%;
+    /*Adjust height accordingly to font size on table*/
+    height: 120%;
     display: block;
     position: absolute;
     left: 0px;
@@ -96,4 +97,11 @@ body{
 #abouttxt{
   margin-left: 200px;
   margin-top:150px;
+}
+
+#table{
+  Font-Size: 14px;
+
+  margin-left: 200px;
+  margin-top:40px;
 }
