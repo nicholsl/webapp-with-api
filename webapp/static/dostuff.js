@@ -71,9 +71,7 @@ function onByIndustryButtonClicked() {
         for (var k = 0; k < industry_list.length; k++) {
             tableBody += '<tr>';
 
-            tableBody += '<td><a onclick="getIdentity(' + industry_list[k]['industryID'] + ",'"
-                + industry_list[k]['industry'] + 
-                ' ' + industry_list[k]['industryID'] + "')\">"
+            tableBody += '<td><a onclick="getIdentity(' 
                 + industry_list[k]['industry'] + ', '
                 + industry_list[k]['industryID'] + '</a></td>';
 
