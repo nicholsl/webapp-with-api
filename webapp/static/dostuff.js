@@ -72,9 +72,11 @@ function onByIndustryButtonClicked() {
             tableBody += '<tr>';
 
             tableBody += '<td><a onclick="getIdentity(' + industry_list[k]['industryID'] + ",'"
-                + industry_list[k]['industry'] + ' ' + industry_list[k]['industryID'] + "')\">"
-                + industry_list[k]['industry'] + ', '
-                + industry_list[k]['industryID'] + '</a></td>';
+                + industry_list[k]['industry'] +
+                //' ' + industry_list[k]['industryID'] + "')\">"
+                //+ industry_list[k]['industry'] + ', '
+                //+ industry_list[k]['industryID'] +
+                '' + '</a></td>';
 
             tableBody += '<td>' + industry_list[k]['birth_year'] + '-';
             // if (industry_list[k]['dea'] != 0) {
