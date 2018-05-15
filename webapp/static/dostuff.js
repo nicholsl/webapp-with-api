@@ -59,9 +59,9 @@ function onByIndustryButtonClicked() {
     fetch(url,{method:'get'}).then(function(response) {
         return response.json();
     })
-        .then(function(myJson) {
-            console.log(myJson);
-        })
+        // .then(function(myJson) {
+        //     console.log(myJson);
+        // })
 
     // Once you have your list of author dictionaries, use it to build
     // an HTML table displaying the author names and lifespan.
