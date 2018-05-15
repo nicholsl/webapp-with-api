@@ -1,7 +1,7 @@
 /*
- * books.js
- * Jeff Ondich, 27 April 2016
- * Updated, 4 May 2018
+ * dostuff.js
+ * Nichols, Gohel, GS, 14 May 2018
+ * Adapted from Jeff Ondich, 27 April 2016 (Updated, 4 May 2018)
  *
  * A little bit of Javascript showing one small example of AJAX
  * within the "books and authors" sample for Carleton CS257,
@@ -97,30 +97,53 @@ function onByIndustryButtonClicked() {
         });
 }
 
-function getAuthor(authorID, authorName) {
-    // Very similar pattern to onAuthorsButtonClicked, so I'm not
-    // repeating those comments here. Read through this code
-    // and see if it makes sense to you.
-    var url = getBaseURL() + '/books/author/' + authorID;
+function onByIdentityButtonClicked() {
+    console.log(getBaseURL())
+    var url = getBaseURL() + '/identities/';
 
-    fetch(url, {method: 'get'})
+    // // Send the request to the Books API /authors/ endpoint
+    // fetch(url, {method: 'get'})
+    //
+    // // When the results come back, transform them from JSON string into
+    // // a Javascript object (in this case, a list of author dictionaries).
+    //     .then(response => response.json();)
 
-        .then((response) => response.json())
+    fetch(url,{method:'get'}).then(function(response) {
+        return response.json();
+    })
+        .then(function(myJson) {
+            console.log(myJson);
+        })
 
-.then(function(booksList) {
-        var tableBody = '<tr><th>' + authorName + '</th></tr>';
-        for (var k = 0; k < booksList.length; k++) {
+    // Once you have your list of author dictionaries, use it to build
+    // an HTML table displaying the author names and lifespan.
+.then(function(industry_list) {
+        // Build the table body.
+        var tableBody = '';
+        for (var k = 0; k < industry_list.length; k++) {
             tableBody += '<tr>';
-            tableBody += '<td>' + booksList[k]['title'] + '</td>';
-            tableBody += '<td>' + booksList[k]['publication_year'] + '</td>';
+
+            tableBody += '<td><a onclick="getAuthor(' + industry_list[k]['id'] + ",'"
+                + industry_list[k]['first_name'] + ' ' + industry_list[k]['last_name'] + "')\">"
+                + industry_list[k]['last_name'] + ', '
+                + industry_list[k]['first_name'] + '</a></td>';
+
+            tableBody += '<td>' + industry_list[k]['birth_year'] + '-';
+            if (industry_list[k]['death_year'] != 0) {
+                tableBody += industry_list[k]['death_year'];
+            }
+            tableBody += '</td>';
             tableBody += '</tr>';
         }
+
+        // Put the table body we just built inside the table that's already on the page.
         var resultsTableElement = document.getElementById('results_table');
         if (resultsTableElement) {
             resultsTableElement.innerHTML = tableBody;
         }
     })
 
+    // Log the error if anything went wrong during the fetch.
         .catch(function(error) {
             console.log(error);
         });
