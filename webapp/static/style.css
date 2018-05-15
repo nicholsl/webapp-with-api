@@ -112,3 +112,11 @@ body{
   margin-left: 200px;
   margin-top:40px;
 }
+
+#main{
+    margin-left:200px;
+    height:100%;
+}
+#results_table{
+    margin-left:20px;
+}
