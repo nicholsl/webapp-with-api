@@ -115,13 +115,13 @@ function onByIdentityButtonClicked() {
 
         // Once you have your list of author dictionaries, use it to build
         // an HTML table displaying the author names and lifespan.
-        .then(function(identity_list) {
+        .then(function (identity_list) {
             // Build the table body.
             var tableBody = '';
             for (var k = 0; k < identity_list.length; k++) {
                 tableBody += '<tr>';
 
-                tableBody += '<td><a onclick="getIdentity(' +  "')\"><a href='www.google.com'>"
+                tableBody += '<td><a onclick="getIdentity(' + "')\"><a href='www.google.com'>"
                     + identity_list[k]['identity'] + ', '
                     + identity_list[k]['identityID'] + '</a></a></td>';
 
@@ -135,6 +135,7 @@ function onByIdentityButtonClicked() {
                 resultsTableElement.innerHTML = tableBody;
             }
         })
+}
 
 function getIdentity(identityID, identityName) {
     // Very similar pattern to onAuthorsButtonClicked, so I'm not
