@@ -122,15 +122,15 @@ function onByIdentityButtonClicked() {
         for (var k = 0; k < industry_list.length; k++) {
             tableBody += '<tr>';
 
-            tableBody += '<td><a onclick="getAuthor(' + industry_list[k]['id'] + ",'"
-                + industry_list[k]['first_name'] + ' ' + industry_list[k]['last_name'] + "')\">"
-                + industry_list[k]['last_name'] + ', '
-                + industry_list[k]['first_name'] + '</a></td>';
+            tableBody += '<td><a onclick="getIdentity(' + industry_list[k]['id'] + ",'"
+                + industry_list[k]['industry'] + ' ' + industry_list[k]['industryID'] + "')\">"
+                + industry_list[k]['industry'] + ', '
+                + industry_list[k]['indeustryId'] + '</a></td>';
 
             tableBody += '<td>' + industry_list[k]['birth_year'] + '-';
-            if (industry_list[k]['death_year'] != 0) {
-                tableBody += industry_list[k]['death_year'];
-            }
+            // if (industry_list[k]['dea'] != 0) {
+            //     tableBody += industry_list[k]['death_year'];
+            // }
             tableBody += '</td>';
             tableBody += '</tr>';
         }
@@ -143,6 +143,35 @@ function onByIdentityButtonClicked() {
     })
 
     // Log the error if anything went wrong during the fetch.
+        .catch(function(error) {
+            console.log(error);
+        });
+}
+
+function getIdentity(identityID, identityName) {
+    // Very similar pattern to onAuthorsButtonClicked, so I'm not
+    // repeating those comments here. Read through this code
+    // and see if it makes sense to you.
+    var url = getBaseURL() + '/identities/' + identityID;
+
+    fetch(url, {method: 'get'})
+
+        .then((response) => response.json())
+
+        .then(function(booksList) {
+            var tableBody = '<tr><th>' + identityName + '</th></tr>';
+            for (var k = 0; k < booksList.length; k++) {
+                tableBody += '<tr>';
+                tableBody += '<td>' + booksList[k]['title'] + '</td>';
+                tableBody += '<td>' + booksList[k]['publication_year'] + '</td>';
+                tableBody += '</tr>';
+            }
+            var resultsTableElement = document.getElementById('results_table');
+            if (resultsTableElement) {
+                resultsTableElement.innerHTML = tableBody;
+            }
+        })
+
         .catch(function(error) {
             console.log(error);
         });
