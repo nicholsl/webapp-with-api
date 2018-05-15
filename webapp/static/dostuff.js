@@ -74,11 +74,7 @@ function onByIndustryButtonClicked() {
             tableBody += '<td><a onclick="getIdentity(' +  "')\">"
                 + industry_list[k]['industry'] + ', '
                 + industry_list[k]['industryID'] + '</a></td>';
-
-            tableBody += '<td>' + industry_list[k]['birth_year'] + '-';
-            // if (industry_list[k]['dea'] != 0) {
-            //     tableBody += industry_list[k]['death_year'];
-            // }
+            
             tableBody += '</td>';
             tableBody += '</tr>';
         }
