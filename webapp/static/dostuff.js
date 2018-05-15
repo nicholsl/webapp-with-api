@@ -30,48 +30,55 @@
 
 identities_data = [{"race_codes": "TOTAL", "race": "TOTAL"}, {"race_codes": "MT", "race": "MALE"}, {"race_codes": "FT", "race": "FEMALE"}, {"race_codes": "WHT", "race": "WHITE"}, {"race_codes": "WHM", "race": "WHITE_MALE"}, {"race_codes": "WHF", "race": "WHITE_FEMALE"}, {"race_codes": "BLKT", "race": "BLACK"}, {"race_codes": "BLKM", "race": "BLACK_MALE"}, {"race_codes": "BLKF", "race": "BLACK_FEMALE"}, {"race_codes": "HISPT", "race": "HISPANIC"}, {"race_codes": "HISPM", "race": "HISPANIC_MALE"}, {"race_codes": "HISPF", "race": "HISPANIC_FEMALE"}, {"race_codes": "ASIANT", "race": "ASIAN"}, {"race_codes": "ASIANM", "race": "ASIAN_MALE"}, {"race_codes": "ASIANF", "race": "ASIAN_FEMALE"}, {"race_codes": "AIANT", "race": "INDIAN"}, {"race_codes": "AIANM", "race": "AM-INDIAN-ALK_MALE"}, {"race_codes": "AIANF", "race": "AM-INDIAN-ALK_FEMALE"}, {"race_codes": "nhopiT", "race": "Hawaiia"}, {"race_codes": "NHOPIM", "race": "Hawaiia_MALE"}, {"race_codes": "NHOPIF", "race": "Hawaiia_FEMALE"}, {"race_codes": "tomrT", "race": "Two Race"}, {"race_codes": "TOMRM", "race": "Two Races_MALE"}, {"race_codes": "TOMRF", "race": "Two Races_FEMALE"}, {"race_codes": "MinT", "race": "TOTAL (MINORITY)"}, {"race_codes": "MinF", "race": "MINORITY_FEMALE(MINORITY)"}, {"race_codes": "MinM", "race": "MINORITY_MALE(MINORITY)"}, {"race_codes": "WHMp", "race": "WHITE_MALE(PERCENT)"}, {"race_codes": "BLKMp", "race": "BLACK(PERCENT)"}, {"race_codes": "HISPMp", "race": "HISPANIC_MALE(PERCENT)"}, {"race_codes": "AIANMp", "race": "AM-INDIAN-ALK_MALE(PERCENT)"}, {"race_codes": "nhopiMp", "race": "Hawaiia_MALE(PERCENT)"}, {"race_codes": "asianMp", "race": "ASIAN_MALE(PERCENT)"}, {"race_codes": "tomrMp", "race": "Two Races_MALE(PERCENT)"}, {"race_codes": "MinMp", "race": "MID OFF AND MGRS (MINORITY)"}, {"race_codes": "WHfp", "race": "WHITE_FEMALE (PERCENT)"}, {"race_codes": "BLKfp", "race": "BLACK_FEMALE (PERCENT)"}, {"race_codes": "HISPfp", "race": "HISPANIC_FEMALE(PERCENT)"}, {"race_codes": "AIANfp", "race": "AM-INDIAN-ALK_FEMALE(PERCENT)"}, {"race_codes": "nhopifp", "race": "Hawaiia_FEMALE(PERCENT)"}, {"race_codes": "asianfp", "race": "ASIAN_FEMALE(PERCENT)"}, {"race_codes": "tomrfp", "race": "Two Races_FEMALE(PERCENT)"}, {"race_codes": "MinFp", "race": "MINORITY_FEMALE(MINORITY)(PERCENT)"}, {"race_codes": "WHtp", "race": "WHITE (PERCENT)"}, {"race_codes": "BLKtp", "race": "BLACK (PERCENT)"}, {"race_codes": "HISPtp", "race": "HISPANIC(PERCENT)"}, {"race_codes": "AIANtp", "race": "INDIAN(PERCENT)"}, {"race_codes": "nhopitp", "race": "Hawaiia(PERCENT)"}, {"race_codes": "asiantp", "race": "ASIAN(PERCENT)"}, {"race_codes": "tomrtp", "race": "Two Race(PERCENT)"}, {"race_codes": "MinTp", "race": "MINORITY_(MINORITY)(PERCENT)"}, {"race_codes": "MTp", "race": "MALE(PERCENT)"}, {"race_codes": "FTp", "race": "FEMALE(PERCENT)"}, {"race_codes": "PTOTAL", "race": "100 percent for total10"}]
 
-var tacos = document.getElementById()
-
 initialize();
 
 function initialize() {
-    var element = document.getElementById('authors_button');
+    var element = document.getElementById('byIndustry');
     if (element) {
-        element.onclick = onAuthorsButtonClicked;
+        element.onclick = onByIndustryButtonClicked;
     }
 }
 
 function getBaseURL() {
+    console.log("tacotacotaco")
     var baseURL = window.location.protocol + '//' + window.location.hostname + ':' + api_port;
     return baseURL;
 }
 
-function onAuthorsButtonClicked() {
-    var url = getBaseURL() + '/authors/';
+function onByIndustryButtonClicked() {
+    console.log("hello")
+    var url = getBaseURL() + '/industries/';
 
-    // Send the request to the Books API /authors/ endpoint
-    fetch(url, {method: 'get'})
+    // // Send the request to the Books API /authors/ endpoint
+    // fetch(url, {method: 'get'})
+    //
+    // // When the results come back, transform them from JSON string into
+    // // a Javascript object (in this case, a list of author dictionaries).
+    //     .then(response => response.json();)
 
-    // When the results come back, transform them from JSON string into
-    // a Javascript object (in this case, a list of author dictionaries).
-        .then((response) => response.json())
+    fetch(url,{method:'get'}).then(function(response) {
+        return response.json();
+    })
+        .then(function(myJson) {
+            console.log(myJson);
+        })
 
     // Once you have your list of author dictionaries, use it to build
     // an HTML table displaying the author names and lifespan.
-.then(function(authorsList) {
+.then(function(industry_list) {
         // Build the table body.
         var tableBody = '';
-        for (var k = 0; k < authorsList.length; k++) {
+        for (var k = 0; k < industry_list.length; k++) {
             tableBody += '<tr>';
 
-            tableBody += '<td><a onclick="getAuthor(' + authorsList[k]['id'] + ",'"
-                + authorsList[k]['first_name'] + ' ' + authorsList[k]['last_name'] + "')\">"
-                + authorsList[k]['last_name'] + ', '
-                + authorsList[k]['first_name'] + '</a></td>';
+            tableBody += '<td><a onclick="getAuthor(' + industry_list[k]['id'] + ",'"
+                + industry_list[k]['first_name'] + ' ' + industry_list[k]['last_name'] + "')\">"
+                + industry_list[k]['last_name'] + ', '
+                + industry_list[k]['first_name'] + '</a></td>';
 
-            tableBody += '<td>' + authorsList[k]['birth_year'] + '-';
-            if (authorsList[k]['death_year'] != 0) {
-                tableBody += authorsList[k]['death_year'];
+            tableBody += '<td>' + industry_list[k]['birth_year'] + '-';
+            if (industry_list[k]['death_year'] != 0) {
+                tableBody += industry_list[k]['death_year'];
             }
             tableBody += '</td>';
             tableBody += '</tr>';

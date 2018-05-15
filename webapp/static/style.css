@@ -65,7 +65,7 @@ margin-left: 20px;
 .btn-group button {
     background-color: #4B5267; /* Green background */
     border: none; /* Green border */
-    color: white; /* White text */
+    color: #EFDEE3; /* White text */
     padding: 10px 24px; /* Some padding */
     cursor: pointer; /* Pointer/hand icon */
     width: 100%; /* Set a width if needed */
@@ -80,12 +80,18 @@ margin-left: 20px;
 
 /* Add a background color on hover */
 .btn-group button:hover {
-    background-color: #684551;
+    background-color: #EFDEE3;
+    color: #4B5267;
 }
 
 body{
     background-color:#EFDEE3;
-    font-family: 'Work Sans', sans-serif;
+    Font-Family: 'Noto Serif', Serif;
+
+}
+
+#abouttxtP1{
+    margin-left: 20px;
 
 }
 
@@ -95,5 +101,7 @@ body{
 
 #abouttxt{
   margin-left: 200px;
-  margin-top:150px;
+  font-family: 'Noto Serif', Serif;
+  font-size: 16px;
+  text-align:left;
 }
