@@ -70,15 +70,15 @@ function onByIndustryButtonClicked() {
         for (var k = 0; k < industry_list.length; k++) {
             tableBody += '<tr>';
 
-            tableBody += '<td><a onclick="getAuthor(' + industry_list[k]['id'] + ",'"
-                + industry_list[k]['first_name'] + ' ' + industry_list[k]['last_name'] + "')\">"
-                + industry_list[k]['last_name'] + ', '
-                + industry_list[k]['first_name'] + '</a></td>';
+            tableBody += '<td><a onclick="getIdentity(' + industry_list[k]['id'] + ",'"
+                + industry_list[k]['industry'] + ' ' + industry_list[k]['industryID'] + "')\">"
+                + industry_list[k]['industry'] + ', '
+                + industry_list[k]['indeustryId'] + '</a></td>';
 
             tableBody += '<td>' + industry_list[k]['birth_year'] + '-';
-            if (industry_list[k]['death_year'] != 0) {
-                tableBody += industry_list[k]['death_year'];
-            }
+            // if (industry_list[k]['dea'] != 0) {
+            //     tableBody += industry_list[k]['death_year'];
+            // }
             tableBody += '</td>';
             tableBody += '</tr>';
         }
@@ -147,7 +147,6 @@ function onByIdentityButtonClicked() {
             console.log(error);
         });
 }
-
 function getIdentity(identityID, identityName) {
     // Very similar pattern to onAuthorsButtonClicked, so I'm not
     // repeating those comments here. Read through this code
