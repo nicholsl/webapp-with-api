@@ -40,7 +40,7 @@ function initialize() {
     }
     var element = document.getElementById('byRace');
     if (element) {
-        element.onclick = onByIdentityButtonClicked();
+        element.onclick = onByIdentityButtonClicked;
     }
 }
 
