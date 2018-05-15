@@ -56,16 +56,15 @@ function onByIndustryButtonClicked() {
     // // a Javascript object (in this case, a list of author dictionaries).
     //     .then(response => response.json();)
 
-    fetch(url,{method:'get'}).then(function(response) {
-        return response.json();
-    })
-        .then(function(myJson) {
-            console.log(myJson);
-        })
+    fetch(url, {method: 'get'})
 
-    // Once you have your list of author dictionaries, use it to build
-    // an HTML table displaying the author names and lifespan.
-.then(function(industry_list) {
+    // When the results come back, transform them from JSON string into
+    // a Javascript object (in this case, a list of author dictionaries).
+        .then((response) => response.json())
+
+        // Once you have your list of author dictionaries, use it to build
+        // an HTML table displaying the author names and lifespan.
+        .then(function(industry_list) {
         // Build the table body.
         var tableBody = '';
         for (var k = 0; k < industry_list.length; k++) {
