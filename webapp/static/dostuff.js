@@ -97,7 +97,7 @@ function onByIndustryButtonClicked() {
 }
 
 function onByIdentityButtonClicked() {
-    console.log(getBaseURL())
+    console.log("helloagain")
     var url = getBaseURL() + '/identities/';
 
     // // Send the request to the Books API /authors/ endpoint
@@ -151,12 +151,41 @@ function getIdentity(identityID, identityName) {
 
         .then((response) => response.json())
 
-        .then(function(booksList) {
+        .then(function(identity_list) {
             var tableBody = '<tr><th>' + identityName + '</th></tr>';
-            for (var k = 0; k < booksList.length; k++) {
+            for (var k = 0; k < identity_list.length; k++) {
                 tableBody += '<tr>';
-                tableBody += '<td>' + booksList[k]['title'] + '</td>';
-                tableBody += '<td>' + booksList[k]['publication_year'] + '</td>';
+                tableBody += '<td>' + identity_list[k]['race'] + '</td>';
+                tableBody += '<td>' + identity_list[k]['race_codes'] + '</td>';
+                tableBody += '</tr>';
+            }
+            var resultsTableElement = document.getElementById('results_table');
+            if (resultsTableElement) {
+                resultsTableElement.innerHTML = tableBody;
+            }
+        })
+
+        .catch(function(error) {
+            console.log(error);
+        });
+}
+
+function getIndustry(industryID, industryName) {
+    // Very similar pattern to onAuthorsButtonClicked, so I'm not
+    // repeating those comments here. Read through this code
+    // and see if it makes sense to you.
+    var url = getBaseURL() + '/industries/' + industryID;
+
+    fetch(url, {method: 'get'})
+
+        .then((response) => response.json())
+
+        .then(function(industry_list) {
+            var tableBody = '<tr><th>' + identityName + '</th></tr>';
+            for (var k = 0; k < industry_list.length; k++) {
+                tableBody += '<tr>';
+                tableBody += '<td>' + industry_list[k]['industry'] + '</td>';
+                tableBody += '<td>' + industry_list[k]['industryID'] + '</td>';
                 tableBody += '</tr>';
             }
             var resultsTableElement = document.getElementById('results_table');
@@ -174,7 +203,7 @@ function getIdentity(identityID, identityName) {
 var btnContainer = document.getElementsByClassName("btn-group");
 
 // Get all buttons with class="btn" inside the container
-var btns = btnContainer.getElementsByClassName("btn");
+var btns = btnContainer.document.getElementsByClassName("btn");
 
 // Loop through the buttons and add the active class to the current/clicked button
 for (var i = 0; i < btns.length; i++) {
