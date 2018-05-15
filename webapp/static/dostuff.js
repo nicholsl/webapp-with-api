@@ -38,6 +38,10 @@ function initialize() {
     if (element) {
         element.onclick = onByIndustryButtonClicked;
     }
+    var element = document.getElementById('byRace');
+    if (element) {
+        element.onclick = onByIdentityButtonClicked();
+    }
 }
 
 function getBaseURL() {
@@ -103,46 +107,35 @@ function onByIdentityButtonClicked() {
     // // a Javascript object (in this case, a list of author dictionaries).
     //     .then(response => response.json();)
 
-    fetch(url,{method:'get'}).then(function(response) {
-        return response.json();
-    })
-        .then(function(myJson) {
-            console.log(myJson);
+    fetch(url, {method: 'get'})
+
+    // When the results come back, transform them from JSON string into
+    // a Javascript object (in this case, a list of author dictionaries).
+        .then((response) => response.json())
+
+        // Once you have your list of author dictionaries, use it to build
+        // an HTML table displaying the author names and lifespan.
+        .then(function(identity_list) {
+            // Build the table body.
+            var tableBody = '';
+            for (var k = 0; k < identity_list.length; k++) {
+                tableBody += '<tr>';
+
+                tableBody += '<td><a onclick="getIdentity(' +  "')\"><a href='www.google.com'>"
+                    + identity_list[k]['identity'] + ', '
+                    + identity_list[k]['identityID'] + '</a></a></td>';
+
+                tableBody += '</td>';
+                tableBody += '</tr>';
+            }
+
+            // Put the table body we just built inside the table that's already on the page.
+            var resultsTableElement = document.getElementById('identity_table');
+            if (resultsTableElement) {
+                resultsTableElement.innerHTML = tableBody;
+            }
         })
 
-    // Once you have your list of author dictionaries, use it to build
-    // an HTML table displaying the author names and lifespan.
-.then(function(industry_list) {
-        // Build the table body.
-        var tableBody = '';
-        for (var k = 0; k < industry_list.length; k++) {
-            tableBody += '<tr>';
-
-            tableBody += '<td><a onclick="getIdentity(' + industry_list[k]['id'] + ",'"
-                + industry_list[k]['industry'] + ' ' + industry_list[k]['industryID'] + "')\">"
-                + industry_list[k]['industry'] + ', '
-                + industry_list[k]['industryId'] + '</a></td>';
-
-            tableBody += '<td>' + industry_list[k]['birth_year'] + '-';
-            // if (industry_list[k]['dea'] != 0) {
-            //     tableBody += industry_list[k]['death_year'];
-            // }
-            tableBody += '</td>';
-            tableBody += '</tr>';
-        }
-
-        // Put the table body we just built inside the table that's already on the page.
-        var resultsTableElement = document.getElementById('results_table');
-        if (resultsTableElement) {
-            resultsTableElement.innerHTML = tableBody;
-        }
-    })
-
-    // Log the error if anything went wrong during the fetch.
-        .catch(function(error) {
-            console.log(error);
-        });
-}
 function getIdentity(identityID, identityName) {
     // Very similar pattern to onAuthorsButtonClicked, so I'm not
     // repeating those comments here. Read through this code
