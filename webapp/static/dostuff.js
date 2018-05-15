@@ -73,7 +73,7 @@ function onByIndustryButtonClicked() {
             tableBody += '<td><a onclick="getIdentity(' + industry_list[k]['id'] + ",'"
                 + industry_list[k]['industry'] + ' ' + industry_list[k]['industryID'] + "')\">"
                 + industry_list[k]['industry'] + ', '
-                + industry_list[k]['indeustryId'] + '</a></td>';
+                + industry_list[k]['industryId'] + '</a></td>';
 
             tableBody += '<td>' + industry_list[k]['birth_year'] + '-';
             // if (industry_list[k]['dea'] != 0) {
@@ -125,7 +125,7 @@ function onByIdentityButtonClicked() {
             tableBody += '<td><a onclick="getIdentity(' + industry_list[k]['id'] + ",'"
                 + industry_list[k]['industry'] + ' ' + industry_list[k]['industryID'] + "')\">"
                 + industry_list[k]['industry'] + ', '
-                + industry_list[k]['indeustryId'] + '</a></td>';
+                + industry_list[k]['industryId'] + '</a></td>';
 
             tableBody += '<td>' + industry_list[k]['birth_year'] + '-';
             // if (industry_list[k]['dea'] != 0) {
