@@ -135,6 +135,10 @@ function onByIdentityButtonClicked() {
                 resultsTableElement.innerHTML = tableBody;
             }
         })
+
+        .catch(function(error) {
+            console.log(error);
+        });
 }
 
 function getIdentity(identityID, identityName) {
