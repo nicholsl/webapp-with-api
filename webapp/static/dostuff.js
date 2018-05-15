@@ -74,7 +74,7 @@ function onByIndustryButtonClicked() {
             tableBody += '<td><a onclick="getIdentity(' +  "')\">"
                 + industry_list[k]['industry'] + ', '
                 + industry_list[k]['industryID'] + '</a></td>';
-            
+
             tableBody += '</td>';
             tableBody += '</tr>';
         }
