@@ -247,7 +247,7 @@ function getIndustry(race_codes) {
 
 .then(function(industry_list) {
         var tableBody = '';
-        for (var k = 0; k < Object.keys(industry_list).length; k++) {
+        for (var k = 1; k < Object.keys(industry_list).length; k = k+2) {
             tableBody += '<tr>';
             //tableBody += '<td>' + Object.keys(industry_list)[k] + '</td>';
             tableBody += '<td>' + industry_list[Object.keys(industry_list)[k]] + '</td>';
@@ -258,6 +258,7 @@ function getIndustry(race_codes) {
             resultsTableElement.innerHTML = tableBody;
         }
     })
+
 
         .catch(function(error) {
             console.log(error);
