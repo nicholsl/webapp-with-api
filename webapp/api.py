@@ -192,8 +192,8 @@ def get_identity_by_id(identity_id):
                           '72':row[22],
                           '81':row[23], '91':row[24]}
                     
-        except Exception as e:
-            sys.stderr.write(e)
+        #except Exception as e:
+            #sys.stderr.write(e)
         connection.close()
 
     return json.dumps(identity_data)

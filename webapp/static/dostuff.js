@@ -225,7 +225,11 @@ function getIdentity(industryID) {
             tableBody += '<tr>';
             tableBody += '<td>' + Object.keys(identity_list)[k] + '</td>';
             tableBody += '<td>' + identity_list[Object.keys(identity_list)[k]] + '</td>';
-            tableBody += '</tr>';
+
+            if (identity_list[Object.keys(identity_list)[k]][-1]==='T'){
+                tableBody += '</tr>';
+            }
+
         }
         var resultsTableElement = document.getElementById('specific_id_table');
         if (resultsTableElement) {
