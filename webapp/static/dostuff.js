@@ -56,6 +56,20 @@ function specificIdentity() {
 
 function onByIndustryButtonClicked() {
     console.log("hello")
+
+    function myFunction() {
+        var x = document.getElementById("industry_table_div");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        }
+        var y = document.getElementById("industry_table_div");
+        if (y.style.display === "block"){
+            y.style.display = "none"
+        }
+    }
+
+    myFunction()
+
     var url = getBaseURL() + '/industries/';
 
     // // Send the request to the Books API /authors/ endpoint
@@ -106,6 +120,21 @@ function onByIndustryButtonClicked() {
 
 function onByIdentityButtonClicked() {
     console.log("helloagain")
+
+    function myFunction() {
+        var x = document.getElementById("identity_table_div");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        var y = document.getElementById("industry_table_div");
+        if (y.style.display === "block"){
+            y.style.display = "none"
+        }
+    }
+
+    myFunction()
     var url = getBaseURL() + '/identities/';
 
     // // Send the request to the Books API /authors/ endpoint
