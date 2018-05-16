@@ -6,7 +6,26 @@
         <link rel="stylesheet" type ="text/css" href = "../static/style.css">
         <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Oxygen:300" rel="stylesheet">
 
-        <script>var api_port = {{ api_port }};</script>
+        <script>
+
+            var api_port = {{ api_port }};
+
+            function onlyAbout() {
+                document.getElementById("byIndustry").style.display = "none";
+                document.getElementById("byRace").style.display = "none";
+            }
+
+            function onlyIndustry() {
+                document.getElementById("byIndustry").style.display = "block";
+                document.getElementById("byRace").style.display = "none";
+            }
+
+            function onlyRace() {
+                document.getElementById("byIndustry").style.display = "none";
+                document.getElementById("byRace").style.display = "block";
+            }
+
+        </script>
 
        <style>
         table {
@@ -33,9 +52,9 @@
 
     <div id ="sideleft">
         <div class="btn-group">
-            <button class = "btn active" id="about"> ABOUT </button>
-            <button class = "btn" id="byIndustry">BY INDUSTRY </button>
-            <button class = "btn" id="byRace">BY RACIAL AND GENDER IDENTITY</button>
+            <button class = "btn active" id="about" onclick="onlyAbout()"> ABOUT </button>
+            <button class = "btn" id="byIndustry" onclick="onlyIndustry()">BY INDUSTRY </button>
+            <button class = "btn" id="byRace" onclick="onlyRace()">BY RACIAL AND GENDER IDENTITY</button>
         </div>
         <!--<div id = "sidebar-btn">-->
             <!--<span></span>-->
