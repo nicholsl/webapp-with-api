@@ -200,10 +200,10 @@ function getIndustry(industryID, industryName) {
 }
 
 // Get the container element
-var btnContainer = document.getElementsByClassName("btn-group")[0]
+var btnContainer = document.getElementsByClassName("btn-group")[0].childNodes
 
 // Loop through the buttons and add the active class to the current/clicked button
-for (var i = 0; i < btnContainer.length; i++) {
+for (var i = 1; i < btnContainer.length; i+=2) {
     btnContainer[i].addEventListener("click", function() {
         var current = document.getElementsByClassName("active");
         current[0].className = current[0].className.replace(" active", "");
