@@ -253,7 +253,7 @@ function getIndustry(race_codes) {
     console.log(race_codes.getAttribute("class"));
 
 
-    var url = getBaseURL() + '/identities/' + race_codes.getAttribute("class")
+    var url = getBaseURL() + '/identities/' + race_codes.getAttribute("class") + '10'
 
     fetch(url, {method: 'get'})
 
