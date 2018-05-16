@@ -62,7 +62,7 @@ function onByIndustryButtonClicked() {
         if (x.style.display === "none") {
             x.style.display = "block";
         }
-        var y = document.getElementById("industry_table_div");
+        var y = document.getElementById("identity_table_div");
         if (y.style.display === "block"){
             y.style.display = "none"
         }
