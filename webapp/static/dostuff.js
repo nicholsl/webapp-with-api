@@ -153,7 +153,7 @@ function onByIdentityButtonClicked() {
 .then(function (identity_list) {
         // Build the table body.
         var tableBody = '';
-        for (var k = 0; k < identity_list.length; k++) {
+        for (var k = 0; k < 23; k++) {
           id = identity_list[k]['race_codes']
           tableBody += '<tr class='+id+'>';
 
@@ -163,7 +163,7 @@ function onByIdentityButtonClicked() {
 
           tableBody += '<td><a class = '+id+' onclick="getIndustry(this)">'
               //"<a href='identity'>"
-              + identity_list[k]['race'] + ', '
+              + identity_list[k]['race']
             //  + identity_list[k]['race_codes'] +
               '</a></a></td>';
 
