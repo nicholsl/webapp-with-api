@@ -249,7 +249,7 @@ function getIndustry(race_codes) {
         var tableBody = '';
         for (var k = 0; k < Object.keys(industry_list).length; k++) {
             tableBody += '<tr>';
-            tableBody += '<td>' + Object.keys(industry_list)[k] + '</td>';
+            //tableBody += '<td>' + Object.keys(industry_list)[k] + '</td>';
             tableBody += '<td>' + industry_list[Object.keys(industry_list)[k]] + '</td>';
             tableBody += '</tr>';
         }

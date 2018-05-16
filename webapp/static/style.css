@@ -151,7 +151,7 @@ body{
 
 table{
     overflow-y:scroll;
-    height:200px;
+    height:600px;
     display:block;
 }
 tr:nth-child(even) {background-color: #f2f2f2;}
