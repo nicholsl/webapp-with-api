@@ -130,6 +130,7 @@ def get_industry_by_id(industry_id):
 
     return json.dumps(data_industry)
 
+
 @app.route('/identities/')
 def get_identities():
     '''
@@ -164,11 +165,12 @@ def get_identity_by_id(identity_id):
     Returns an empty dictionary if there's any database failure.
     '''
 
-    query = '''SELECT * FROM invertMaster WHERE id = %s'''        
+    query = '''SELECT * FROM invertMaster WHERE id = %s'''
+
     identity_data = {}
     connection = get_connection()
     if connection is not None:
-        try:
+        #try:
             cursor = get_select_query_results(connection, query, (identity_id,))
             row = cursor.__next__()
             if row is not None:
@@ -189,10 +191,10 @@ def get_identity_by_id(identity_id):
                           '62':row[20], '71':row[21],
                           '72':row[22],
                           '81':row[23], '91':row[24]}
-                    
-        except Exception as e:
-            sys.stderr.write(e)
-        connection.close()
+
+        #except Exception as e:
+            #sys.stderr.write(e)
+    connection.close()
 
     return json.dumps(identity_data)
 
