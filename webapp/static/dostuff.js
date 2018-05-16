@@ -121,7 +121,7 @@ function onByIdentityButtonClicked() {
             for (var k = 0; k < identity_list.length; k++) {
                 tableBody += '<tr>';
 
-                tableBody += '<td><a onclick="getIdentity(' + "')\"><a href='industrytemplate.html'>"
+                tableBody += '<td><a onclick="getIdentity(' + "')\"><a href='industry'>"
                     + identity_list[k]['race'] + ', '
                     + identity_list[k]['race_codes'] + '</a></a></td>';
 

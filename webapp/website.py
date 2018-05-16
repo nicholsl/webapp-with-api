@@ -35,7 +35,7 @@ def get_something():
 @app.route('/industry')
 def get_somethingelse():
 	global api_port
-	return flask.render_template('identitytemplate.html', api_port=api_port)
+	return flask.render_template('Identitytemplate.html', api_port=api_port)
 
 if __name__ == '__main__':
     if len(sys.argv) != 4:
