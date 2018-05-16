@@ -174,14 +174,22 @@ function onByIdentityButtonClicked() {
         // Build the table body.
         var tableBody = '';
         for (var k = 0; k < identity_list.length; k++) {
-            tableBody += '<tr>';
+          id = identity_list[k]['race_codes']
+          tableBody += '<tr class='+id+'>';
 
-            tableBody += '<td><a onclick="getIdentity(' + "')\"><a href='industry'>"
-                + identity_list[k]['race'] + ', '
-                + identity_list[k]['race_codes'] + '</a></a></td>';
+          tableBody += '<td><a class ='+id+' onclick="getIndustry(this)">'
+          // idArray.push(id);
+          tableBody += '<tr>';
 
-            tableBody += '</td>';
-            tableBody += '</tr>';
+          tableBody += '<td><a class = '+id+' onclick="getIndustry(this)">'
+              //"<a href='identity'>"
+              + industry_list[k]['race'] + ', '
+              + industry_list[k]['race_codes'] +
+              '</a></a></td>';
+
+
+          tableBody += '</td>';
+          tableBody += '</tr>';
         }
 
         // Put the table body we just built inside the table that's already on the page.
@@ -230,25 +238,28 @@ function getIdentity(industryID) {
         });
 }
 
-function getIndustry(industryID, industryName) {
+function getIndustry(race_codes) {
     // Very similar pattern to onAuthorsButtonClicked, so I'm not
     // repeating those comments here. Read through this code
     // and see if it makes sense to you.
-    var url = getBaseURL() + '/industries/' + industryID;
+    console.log(race_codes.getAttribute("class"));
+
+
+    var url = getBaseURL() + '/identities/' + race_codes.getAttribute("class")
 
     fetch(url, {method: 'get'})
 
         .then((response) => response.json())
 
 .then(function(industry_list) {
-        var tableBody = '<tr><th>' + identityName + '</th></tr>';
+        var tableBody = '';
         for (var k = 0; k < Object.keys(industry_list).length; k++) {
             tableBody += '<tr>';
             tableBody += '<td>' + Object.keys(industry_list)[k] + '</td>';
             tableBody += '<td>' + industry_list[Object.keys(industry_list)[k]] + '</td>';
             tableBody += '</tr>';
         }
-        var resultsTableElement = document.getElementById('industry_table');
+        var resultsTableElement = document.getElementById('specific_id_table');
         if (resultsTableElement) {
             resultsTableElement.innerHTML = tableBody;
         }
