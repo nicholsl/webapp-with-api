@@ -215,10 +215,10 @@ function getIdentity(industryID) {
 
         .then(function(identity_list) {
             var tableBody = '';
-            for (akey in Object.keys(identity_list)) {
+            for (var i = 0; i < Object.keys(identity_list).length){
                 tableBody += '<tr>';
-                tableBody += '<td>' + identity_list[akey]['race'] + '</td>';
-                tableBody += '<td>' + identity_list[akey]['race_codes'] + '</td>';
+                tableBody += '<td>' + identity_list[identity[i]]['race'] + '</td>';
+                tableBody += '<td>' + identity_list[identity[i]]['race_codes'] + '</td>';
                 tableBody += '</tr>';
             }
             var resultsTableElement = document.getElementById('specific_id_table');
