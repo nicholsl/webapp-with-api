@@ -124,6 +124,8 @@ function onByIndustryButtonClicked() {
 }
 
 function onByIdentityButtonClicked() {
+    document.getElementById("industry_table_div").style.display = "none";
+    document.getElementById("identity_table_div").style.display = "block";
     console.log("helloagain")
 
     var url = getBaseURL() + '/identities/';
@@ -251,6 +253,7 @@ function getIndustry(race_codes) {
         .catch(function(error) {
             console.log(error);
         });
+    document.getElementById("race_distribution_div").style.display = "block";
 }
 
 // Get the container element
