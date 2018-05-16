@@ -93,11 +93,12 @@ function onByIndustryButtonClicked() {
         // Build the table body.
         var tableBody = '';
         for (var k = 0; k < industry_list.length; k++) {
-
+            idArray = new Array(30)
             id = industry_list[k]['industryID']
+            idArray.add(id);
             tableBody += '<tr>';
 
-            tableBody += '<td><a class = id onclick="getIdentity(this.class)">'
+            tableBody += '<td><a onclick="getIdentity(idArray.get(k)">'
                 //"<a href='identity'>"
                 + industry_list[k]['industry'] + ', '
                 + industry_list[k]['industryID'] + 
