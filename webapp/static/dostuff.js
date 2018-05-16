@@ -104,15 +104,15 @@ function onByIndustryButtonClicked() {
         // Build the table body.
         var tableBody = '';
         for (var k = 0; k < industry_list.length; k++) {
-            idArray = []
+            // idArray = []
             id = industry_list[k]['industryID']
-            tableBody += '<tr class=${id}>';
+            tableBody += '<tr class='+id+'>';
 
-            tableBody += '<td><a class =${id} onclick="getIdentity(this.class)">'
-            idArray.push(id);
+            tableBody += '<td><a class ='+id+' onclick="getIdentity(this.class)">'
+            // idArray.push(id);
             tableBody += '<tr>';
 
-            tableBody += '<td><a onclick="getIdentity(idArray.get(k))">'
+            tableBody += '<td><a class = '+id+' onclick="getIdentity(this.class)">'
                 //"<a href='identity'>"
                 + industry_list[k]['industry'] + ', '
                 + industry_list[k]['industryID'] + 
