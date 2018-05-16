@@ -153,11 +153,11 @@ function onByIdentityButtonClicked() {
 .then(function (identity_list) {
         // Build the table body.
         var tableBody = '';
-        for (var k = 1; k < identity_list.length; k = k+2) {
+        for (var k = 0; k < identity_list.length; k++) {
           id = identity_list[k]['race_codes']
           tableBody += '<tr class='+id+'>';
 
-          tableBody += '<td><a class ='+id+' onclick="getIndustry(this)">'
+          //tableBody += '<td><a class ='+id+' onclick="getIndustry(this)">'
           // idArray.push(id);
           tableBody += '<tr>';
 
