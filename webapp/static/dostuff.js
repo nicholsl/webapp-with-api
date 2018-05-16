@@ -77,9 +77,11 @@ function onByIndustryButtonClicked() {
         // Build the table body.
         var tableBody = '';
         for (var k = 0; k < industry_list.length; k++) {
+
+            id = industry_list[k]['industryID'];
             tableBody += '<tr>';
 
-            tableBody += '<td><a onclick="getIdentity()">'
+            tableBody += '<td><a onclick="getIdentity(id)">'
                 //"<a href='identity'>"
                 + industry_list[k]['industry'] + ', '
                 + industry_list[k]['industryID'] + 
@@ -147,14 +149,14 @@ function onByIdentityButtonClicked() {
         });
 }
 
-function getIdentity(identityID, identityName) {
+function getIdentity(industryID) {
     // Very similar pattern to onAuthorsButtonClicked, so I'm not
     // repeating those comments here. Read through this code
     // and see if it makes sense to you.
 
     console.log("tacotaco");
 
-    var url = getBaseURL() + '/identities/';
+    var url = getBaseURL() + '/industries/' + industryID;
 
     fetch(url, {method: 'get'})
 
