@@ -68,6 +68,9 @@ if (!String.format) {
 
 function onByIndustryButtonClicked() {
     document.getElementById("industry_table_div").style.display = "block";
+    document.getElementById("identity_table_div").style.display = "none";
+    document.getElementById("specific_id_table_div").style.display = "none";
+    document.getElementById("race_distribution_div").style.display = "none";
     console.log("hello")
 
     var url = getBaseURL() + '/industries/';
