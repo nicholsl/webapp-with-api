@@ -259,18 +259,6 @@ function getIndustry(race_codes) {
         }
     })
 
-    $('#container').highcharts({
-        xAxis: {
-            categories: ["United States", "Western Europe", "Canada",
-                "Germany", "France", "Mexico"]
-        },
-        series: [{
-            data: [50, 100, 150, 200, 250, 300]
-        }]
-    });
-
-
-
 
         .catch(function(error) {
             console.log(error);
@@ -288,7 +276,4 @@ for (var i = 1; i < btnContainer.length; i+=2) {
         current[0].className = current[0].className.replace(" active", "");
         this.className += " active";
     });
-
 }
-
-
