@@ -50,17 +50,6 @@ function getBaseURL() {
     return baseURL;
 }
 
-if (!String.format) {
-    String.format = function(format) {
-        var args = Array.prototype.slice.call(arguments, 1);
-        return format.replace(/{(\d+)}/g, function(match, number) {
-            return typeof args[number] != 'undefined'
-                ? args[number]
-                : match
-                ;
-        });
-    };
-}
 function specificIdentity() {
 
 }
@@ -104,20 +93,16 @@ function onByIndustryButtonClicked() {
         // Build the table body.
         var tableBody = '';
         for (var k = 0; k < industry_list.length; k++) {
-            // idArray = []
+            idArray = []
             id = industry_list[k]['industryID']
-            tableBody += '<tr class='+id+'>';
-
-            tableBody += '<td><a class ='+id+' onclick="getIdentity(this)">'
-            // idArray.push(id);
+            idArray.push(id);
             tableBody += '<tr>';
 
-            tableBody += '<td><a class = '+id+' onclick="getIdentity(this)">'
+            tableBody += '<td><a onclick="getIdentity(idArray.get(k))">'
                 //"<a href='identity'>"
                 + industry_list[k]['industry'] + ', '
-                + industry_list[k]['industryID'] + 
+                + industry_list[k]['industryID'] +
                 '</a></a></td>';
-
 
             tableBody += '</td>';
             tableBody += '</tr>';
@@ -174,11 +159,16 @@ function onByIdentityButtonClicked() {
             // Build the table body.
             var tableBody = '';
             for (var k = 0; k < identity_list.length; k++) {
+                idArray = []
+                id = identity_list[k]['race_codes']
+                idArray.push(id);
                 tableBody += '<tr>';
 
-                tableBody += '<td><a onclick="getIdentity(' + "')\"><a href='industry'>"
+                tableBody += '<td><a onclick="getIdentity(idArray.get(k))">'
+                    //"<a href='identity'>"
                     + identity_list[k]['race'] + ', '
-                    + identity_list[k]['race_codes'] + '</a></a></td>';
+                    + identity_list[k]['race_codes'] +
+                    '</a></a></td>';
 
                 tableBody += '</td>';
                 tableBody += '</tr>';
@@ -202,10 +192,9 @@ function getIdentity(industryID) {
     // repeating those comments here. Read through this code
     // and see if it makes sense to you.
 
-    console.log(industryID.getAttribute("class"));
+    console.log(industryID);
 
-
-    var url = getBaseURL() + '/industries/' + industryID.getAttribute("class")
+    var url = getBaseURL() + '/industries/' + industryID;
 
     fetch(url, {method: 'get'})
 
@@ -213,13 +202,13 @@ function getIdentity(industryID) {
 
         .then(function(identity_list) {
             var tableBody = '';
-            for (akey in Object.keys(identity_list)) {
+            for (var k = 0; k < identity_list.length; k++) {
                 tableBody += '<tr>';
-                tableBody += '<td>' + identity_list[akey]['race'] + '</td>';
-                tableBody += '<td>' + identity_list[akey]['race_codes'] + '</td>';
+                tableBody += '<td>' + identity_list[k]['race'] + '</td>';
+                tableBody += '<td>' + identity_list[k]['race_codes'] + '</td>';
                 tableBody += '</tr>';
             }
-            var resultsTableElement = document.getElementById('specific_id_table');
+            var resultsTableElement = document.getElementById('identity_table');
             if (resultsTableElement) {
                 resultsTableElement.innerHTML = tableBody;
             }
