@@ -65,27 +65,9 @@ if (!String.format) {
         });
     };
 }
-function specificIdentity() {
-
-}
 
 function onByIndustryButtonClicked() {
     console.log("hello")
-
-    function myFunction() {
-        var y = document.getElementById("identity_table_div");
-        if (y.style.display === "block"){
-            y.style.display = "none"
-        }
-
-        var x = document.getElementById("industry_table_div");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        }
-
-    }
-
-    myFunction()
 
     var url = getBaseURL() + '/industries/';
 
@@ -143,20 +125,6 @@ function onByIndustryButtonClicked() {
 function onByIdentityButtonClicked() {
     console.log("helloagain")
 
-    function myFunction() {
-        var y = document.getElementById("industry_table_div");
-        if (y.style.display === "block"){
-            y.style.display = "none"
-        }
-
-        var x = document.getElementById("identity_table_div");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        }
-
-    }
-
-    myFunction()
     var url = getBaseURL() + '/identities/';
 
     // // Send the request to the Books API /authors/ endpoint
@@ -270,7 +238,7 @@ function getIndustry(race_codes) {
             tableBody += '<td>' + industry_list[Object.keys(industry_list)[k]] + '</td>';
             tableBody += '</tr>';
         }
-        var resultsTableElement = document.getElementById('specific_id_table');
+        var resultsTableElement = document.getElementById('race_distribution_table');
         if (resultsTableElement) {
             resultsTableElement.innerHTML = tableBody;
         }
