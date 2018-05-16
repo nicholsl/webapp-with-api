@@ -97,7 +97,7 @@ function onByIndustryButtonClicked() {
             id = industry_list[k]['industryID']
             tableBody += '<tr>';
 
-            tableBody += '<td><a onclick="getIdentity(id)">'
+            tableBody += '<td><a class = id onclick="getIdentity(this.class)">'
                 //"<a href='identity'>"
                 + industry_list[k]['industry'] + ', '
                 + industry_list[k]['industryID'] + 
