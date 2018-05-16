@@ -183,8 +183,8 @@ function onByIdentityButtonClicked() {
 
           tableBody += '<td><a class = '+id+' onclick="getIndustry(this)">'
               //"<a href='identity'>"
-              + industry_list[k]['race'] + ', '
-              + industry_list[k]['race_codes'] +
+              + identity_list[k]['race'] + ', '
+              + identity_list[k]['race_codes'] +
               '</a></a></td>';
 
 
