@@ -44,6 +44,19 @@ function initialize() {
     }
 }
 
+function myFunction() {
+    var y = document.getElementById("industry_table_div");
+    if (y.style.display === "block"){
+        y.style.display = "none"
+    }
+
+    var x = document.getElementById("identity_table_div");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    }
+
+}
+
 function getBaseURL() {
     console.log("tacotacotaco")
     var baseURL = window.location.protocol + '//' + window.location.hostname + ':' + api_port;
@@ -72,7 +85,7 @@ function onByIndustryButtonClicked() {
 
     }
 
-    myFunction()
+    myFunction();
 
     var url = getBaseURL() + '/industries/';
 
@@ -123,23 +136,12 @@ function onByIndustryButtonClicked() {
         });
 }
 
+
+
 function onByIdentityButtonClicked() {
     console.log("helloagain")
 
-    function myFunction() {
-        var y = document.getElementById("industry_table_div");
-        if (y.style.display === "block"){
-            y.style.display = "none"
-        }
-
-        var x = document.getElementById("identity_table_div");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        }
-
-    }
-
-    myFunction()
+    myFunction();
     var url = getBaseURL() + '/identities/';
 
     // // Send the request to the Books API /authors/ endpoint
