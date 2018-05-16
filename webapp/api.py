@@ -170,7 +170,7 @@ def get_identity_by_id(identity_id):
     identity_data = {}
     connection = get_connection()
     if connection is not None:
-        
+        #try:
             cursor = get_select_query_results(connection, query, (identity_id,))
             row = cursor.__next__()
             if row is not None:
@@ -192,7 +192,9 @@ def get_identity_by_id(identity_id):
                           '72':row[22],
                           '81':row[23], '91':row[24]}
 
-        connection.close()
+        #except Exception as e:
+            #sys.stderr.write(e)
+    connection.close()
 
     return json.dumps(identity_data)
 
