@@ -213,10 +213,10 @@ function getIdentity(industryID) {
 
 .then(function(identity_list) {
         var tableBody = '';
-        for (var k = 0; k < Object.keys(industry_list).length; k++) {
+        for (var k = 0; k < Object.keys(identity_list).length; k++) {
             tableBody += '<tr>';
-            tableBody += '<td>' + identity_list[k]['race'] + '</td>';
-            tableBody += '<td>' + identity_list[k]['race_codes'] + '</td>';
+            tableBody += '<td>' + Object.keys(identity_list)[k] + '</td>';
+            tableBody += '<td>' + identity_list[Object.keys(identity_list)[k]] + '</td>';
             tableBody += '</tr>';
         }
         var resultsTableElement = document.getElementById('specific_id_table');
@@ -244,8 +244,8 @@ function getIndustry(industryID, industryName) {
         var tableBody = '<tr><th>' + identityName + '</th></tr>';
         for (var k = 0; k < Object.keys(industry_list).length; k++) {
             tableBody += '<tr>';
-            tableBody += '<td>' + industry_list[k]['industry'] + '</td>';
-            tableBody += '<td>' + industry_list[k]['industryID'] + '</td>';
+            tableBody += '<td>' + Object.keys(industry_list)[k] + '</td>';
+            tableBody += '<td>' + industry_list[Object.keys(industry_list)[k]] + '</td>';
             tableBody += '</tr>';
         }
         var resultsTableElement = document.getElementById('industry_table');
