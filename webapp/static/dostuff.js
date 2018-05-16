@@ -122,8 +122,8 @@ function onByIdentityButtonClicked() {
                 tableBody += '<tr>';
 
                 tableBody += '<td><a onclick="getIdentity(' + "')\"><a href='industrytemplate.html'>"
-                    + identity_list[k]['identity'] + ', '
-                    + identity_list[k]['identityID'] + '</a></a></td>';
+                    + identity_list[k]['race'] + ', '
+                    + identity_list[k]['race_codes'] + '</a></a></td>';
 
                 tableBody += '</td>';
                 tableBody += '</tr>';
