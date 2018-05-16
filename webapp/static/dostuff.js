@@ -50,6 +50,10 @@ function getBaseURL() {
     return baseURL;
 }
 
+function specificIdentity() {
+
+}
+
 function onByIndustryButtonClicked() {
     console.log("hello")
     var url = getBaseURL() + '/industries/';
@@ -75,9 +79,11 @@ function onByIndustryButtonClicked() {
         for (var k = 0; k < industry_list.length; k++) {
             tableBody += '<tr>';
 
-            tableBody += '<td><a onclick="getIdentity(' +  "')\"><a href='identity'>"
+            tableBody += '<td><a onclick="getIdentity()' +  "')\">" +
+                //"<a href='identity'>"
                 + industry_list[k]['industry'] + ', '
-                + industry_list[k]['industryID'] + '</a></a></td>';
+                + industry_list[k]['industryID'] + 
+                '</a></a></td>';
 
             tableBody += '</td>';
             tableBody += '</tr>';
@@ -145,6 +151,9 @@ function getIdentity(identityID, identityName) {
     // Very similar pattern to onAuthorsButtonClicked, so I'm not
     // repeating those comments here. Read through this code
     // and see if it makes sense to you.
+
+    console.log("tacotaco");
+
     var url = getBaseURL() + '/identities/' + identityID;
 
     fetch(url, {method: 'get'})
