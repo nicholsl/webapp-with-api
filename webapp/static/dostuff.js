@@ -210,6 +210,9 @@ function onByIdentityButtonClicked() {
 
 function getIdentity(industryID) {
 
+    document.getElementById("industry_table_div").style.display = "none";
+    document.getElementById("identity_table_div").style.display = "none";
+
     // Very similar pattern to onAuthorsButtonClicked, so I'm not
     // repeating those comments here. Read through this code
     // and see if it makes sense to you.
