@@ -84,7 +84,7 @@ function onByIndustryButtonClicked() {
         }
 
         // Put the table body we just built inside the table that's already on the page.
-        var resultsTableElement = document.getElementById('results_table');
+        var resultsTableElement = document.getElementById('industry_table');
         if (resultsTableElement) {
             resultsTableElement.innerHTML = tableBody;
         }
@@ -122,8 +122,8 @@ function onByIdentityButtonClicked() {
                 tableBody += '<tr>';
 
                 tableBody += '<td><a onclick="getIdentity(' + "')\"><a href='industrytemplate.html'>"
-                    + identity_list[k]['identity'] + ', '
-                    + identity_list[k]['identityID'] + '</a></a></td>';
+                    + identity_list[k]['race'] + ', '
+                    + identity_list[k]['race_codes'] + '</a></a></td>';
 
                 tableBody += '</td>';
                 tableBody += '</tr>';
@@ -159,7 +159,7 @@ function getIdentity(identityID, identityName) {
                 tableBody += '<td>' + identity_list[k]['race_codes'] + '</td>';
                 tableBody += '</tr>';
             }
-            var resultsTableElement = document.getElementById('results_table');
+            var resultsTableElement = document.getElementById('identity_table');
             if (resultsTableElement) {
                 resultsTableElement.innerHTML = tableBody;
             }
@@ -188,7 +188,7 @@ function getIndustry(industryID, industryName) {
                 tableBody += '<td>' + industry_list[k]['industryID'] + '</td>';
                 tableBody += '</tr>';
             }
-            var resultsTableElement = document.getElementById('results_table');
+            var resultsTableElement = document.getElementById('industry_table');
             if (resultsTableElement) {
                 resultsTableElement.innerHTML = tableBody;
             }
