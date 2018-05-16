@@ -117,8 +117,19 @@ body{
     margin-left:200px;
     height:100%;
 }
-#results_table{
+#industry_table{
     margin-left:20px;
 }
 
+#identity_table{
+    margin-left:20px;
+}
+
+#identity_table_div{
+    margin-left:200px;
+}
+
+#industry_table_div{
+    margin-left:200px;
+}
 tr:nth-child(even) {background-color: #f2f2f2;}
