@@ -97,7 +97,7 @@ def get_industry_by_id(industry_id):
     in the specific industry in our database.
     Returns an empty dictionary if there's any database failure.
     '''
-    query = '''SELECT * FROM master WHERE jobid = %s'''
+    query = '''SELECT * FROM master WHERE jobid = %s ORDER BY jobid'''
 
     data_industry = {}
     connection = get_connection()
