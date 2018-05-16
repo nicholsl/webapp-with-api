@@ -132,6 +132,14 @@ body{
 #industry_table_div{
     margin-left:200px;
 }
+
+#specific_id_table_div_table_div{
+    margin-left:200px;
+}
+
+#specific_id_table{
+    margin-left:20px;
+}
 table{
     overflow-y:scroll;
     height:50%;
