@@ -79,6 +79,8 @@ function onByIndustryButtonClicked() {
             x.style.display = "block";
         }
 
+        var z = document.getElementById("specific")
+
     }
 
     myFunction()
