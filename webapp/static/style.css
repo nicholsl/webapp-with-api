@@ -132,4 +132,9 @@ body{
 #industry_table_div{
     margin-left:200px;
 }
+table{
+    overflow-y:scroll;
+    height:100px;
+    display:block;
+}
 tr:nth-child(even) {background-color: #f2f2f2;}
