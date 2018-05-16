@@ -78,7 +78,7 @@ transform: auto;
 }
 
 /* Add a background color on hover */
-.active, .btn-group button:hover {
+.btn-group .active, .btn:hover {
     background-color: #EFDEE3;
     color: #4B5267;
 }
