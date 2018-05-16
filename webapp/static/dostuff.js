@@ -183,7 +183,7 @@ function onByIdentityButtonClicked() {
 
           tableBody += '<td><a class = '+id+' onclick="getIndustry(this)">'
               //"<a href='identity'>"
-              + identity_list[k]['race'] + ', '
+              + mydictionary[identity_list[k]['race']] + ', '
               + identity_list[k]['race_codes'] +
               '</a></a></td>';
 
@@ -225,10 +225,8 @@ function getIdentity(industryID) {
             tableBody += '<tr>';
             tableBody += '<td>' + Object.keys(identity_list)[k] + '</td>';
             tableBody += '<td>' + identity_list[Object.keys(identity_list)[k]] + '</td>';
+            tableBody += '</tr>';
 
-            if (identity_list[Object.keys(identity_list)[k]][-1]==='T'){
-                tableBody += '</tr>';
-            }
 
         }
         var resultsTableElement = document.getElementById('specific_id_table');
