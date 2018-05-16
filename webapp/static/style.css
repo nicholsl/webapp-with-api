@@ -148,9 +148,23 @@ body{
 #specific_id_table{
     margin-left:20px;
 }
+
+#race_distribution_div{
+    margin-left:200px;
+}
+
+#race_distribution_table{
+    margin-left:20px;
+}
+
+#industry_numbers{
+    margin-left:500px;
+    margin-top:-500px;
+}
+
 table{
     overflow-y:scroll;
-    height:50%;
+    height:500px;
     display:block;
 }
 tr:nth-child(even) {background-color: #f2f2f2;}

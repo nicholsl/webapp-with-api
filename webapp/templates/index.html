@@ -13,17 +13,25 @@
             function onlyAbout() {
                 document.getElementById("industry_table_div").style.display = "none";
                 document.getElementById("identity_table_div").style.display = "none";
+                document.getElementById("specific_id_table_div").style.display = "none";
+                document.getElementById("race_distribution_div").style.display = "none";
             }
 
             function onlyIndustry() {
                 document.getElementById("industry_table_div").style.display = "block";
                 document.getElementById("identity_table_div").style.display = "none";
+                document.getElementById("specific_id_table_div").style.display = "none";
+                document.getElementById("race_distribution_div").style.display = "none";
             }
 
             function onlyRace() {
                 document.getElementById("industry_table_div").style.display = "none";
                 document.getElementById("identity_table_div").style.display = "block";
+                document.getElementById("specific_id_table_div").style.display = "none";
+                document.getElementById("race_distribution_div").style.display = "none";
             }
+
+
 
         </script>
 
@@ -46,6 +54,7 @@
 
     </head>
     <body>
+
     <div id = "header">
         <h3>NACP-2 WOMEN AND MINORITIES IN THE WORKFORCE</h3>
     </div>
@@ -79,14 +88,99 @@
     </div>
 
     <div id="specific_id_table_div">
-        <table id="specific_id_table">
+        <table id="specific_id_table"></table>
+    </div>
+
+    <div id="race_distribution_div">
+        <table id="race_distribution_table"></table>
+        <table id="industry_numbers">
+            <tr>
+                <th>NAICS-2 Code</th>
+                <th>Designation</th>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Agriculture, Forestry, Fishing and Hunting</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>Mining, Quarrying, and Oil and Gas Extraction</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>Utilities</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>Construction</td>
+            </tr>
+            <tr>
+                <td>31-33</td>
+                <td>Manufacturing</td>
+            </tr>
+            <tr>
+                <td>42</td>
+                <td>Wholesale Trade</td>
+            </tr>
+            <tr>
+                <td>44-45</td>
+                <td>Retail Trade</td>
+            </tr>
+            <tr>
+                <td>48-49</td>
+                <td>Transportation and Warehousing</td>
+            </tr>
+            <tr>
+                <td>51</td>
+                <td>Information</td>
+            </tr>
+            <tr>
+                <td>52</td>
+                <td>Finance and Insurance</td>
+            </tr>
+            <tr>
+                <td>53</td>
+                <td>Real Estate and Rental and Leasing</td>
+            </tr>
+            <tr>
+                <td>54</td>
+                <td>Professional, Scientific, and Technical Services</td>
+            </tr>
+            <tr>
+                <td>55</td>
+                <td>Management of Companies and Enterprises</td>
+            </tr>
+            <tr>
+                <td>56</td>
+                <td>Administrative and Support and Waste Management and Remediation Services</td>
+            </tr>
+            <tr>
+            <td>61</td>
+            <td>Educational Services</td>
+        </tr>
+            <tr>
+                <td>62</td>
+                <td>Health Care and Social Assistance</td>
+            </tr>
+            <tr>
+                <td>71</td>
+                <td>Arts, Entertainment, and Recreation</td>
+            </tr>
+            <tr>
+                <td>72</td>
+                <td>Accommodation and Food Services</td>
+            </tr>
+            <tr>
+                <td>81</td>
+                <td>Other Services (except Public Administration)</td>
+            </tr>
+            <tr>
+                <td>62</td>
+                <td>Public Administration</td>
+            </tr>
 
         </table>
     </div>
-
-
-
-
 
   </div>
 
