@@ -102,7 +102,7 @@ function onByIndustryButtonClicked() {
             // idArray.push(id);
             tableBody += '<tr>';
 
-            tableBody += '<td><a class = '+id+' onclick="getIdentity(this)">'
+            tableBody += '<td><a href class = '+id+' onclick="getIdentity(this)">'
                 //"<a href='identity'>"
                 + industry_list[k]['industry'] + ', '
                 + industry_list[k]['industryID'] +
@@ -161,7 +161,7 @@ function onByIdentityButtonClicked() {
           // idArray.push(id);
           tableBody += '<tr>';
 
-          tableBody += '<td><a class = '+id+' onclick="getIndustry(this)">'
+          tableBody += '<td><a href class = '+id+' onclick="getIndustry(this)">'
               //"<a href='identity'>"
               + identity_list[k]['race']
             //  + identity_list[k]['race_codes'] +
