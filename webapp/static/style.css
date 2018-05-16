@@ -140,6 +140,15 @@ body{
 #specific_id_table{
     margin-left:20px;
 }
+
+#race_distribution_div{
+    margin-left:200px;
+}
+
+#race_distribution_table{
+    margin-left:20px;
+}
+
 table{
     overflow-y:scroll;
     height:50%;
