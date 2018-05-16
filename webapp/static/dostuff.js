@@ -154,7 +154,7 @@ function getIdentity(identityID, identityName) {
 
     console.log("tacotaco");
 
-    var url = getBaseURL() + '/identities/' + identityID;
+    var url = getBaseURL() + '/identities/';
 
     fetch(url, {method: 'get'})
 
