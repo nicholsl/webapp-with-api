@@ -179,11 +179,12 @@ function onByIdentityButtonClicked() {
 }
 
 function getIdentity(industryID) {
+
     // Very similar pattern to onAuthorsButtonClicked, so I'm not
     // repeating those comments here. Read through this code
     // and see if it makes sense to you.
 
-    console.log("tacotaco");
+    console.log(industryID);
 
     var url = getBaseURL() + '/industries/' + industryID;
 
