@@ -44,25 +44,23 @@ function initialize() {
     }
 }
 
-function myFunction() {
-    var y = document.getElementById("industry_table_div");
-    if (y.style.display === "block"){
-        y.style.display = "none"
-    }
-
-    var x = document.getElementById("identity_table_div");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    }
-
-}
-
 function getBaseURL() {
     console.log("tacotacotaco")
     var baseURL = window.location.protocol + '//' + window.location.hostname + ':' + api_port;
     return baseURL;
 }
 
+if (!String.format) {
+    String.format = function(format) {
+        var args = Array.prototype.slice.call(arguments, 1);
+        return format.replace(/{(\d+)}/g, function(match, number) {
+            return typeof args[number] != 'undefined'
+                ? args[number]
+                : match
+                ;
+        });
+    };
+}
 function specificIdentity() {
 
 }
@@ -81,11 +79,9 @@ function onByIndustryButtonClicked() {
             x.style.display = "block";
         }
 
-        var z = document.getElementById("specific")
-
     }
 
-    myFunction();
+    myFunction()
 
     var url = getBaseURL() + '/industries/';
 
@@ -108,16 +104,20 @@ function onByIndustryButtonClicked() {
         // Build the table body.
         var tableBody = '';
         for (var k = 0; k < industry_list.length; k++) {
-            idArray = []
+            // idArray = []
             id = industry_list[k]['industryID']
-            idArray.push(id);
+            tableBody += '<tr class='+id+'>';
+
+            tableBody += '<td><a class ='+id+' onclick="getIdentity(this)">'
+            // idArray.push(id);
             tableBody += '<tr>';
 
-            tableBody += '<td><a onclick="getIdentity(idArray.get(k))">'
+            tableBody += '<td><a class = '+id+' onclick="getIdentity(this)">'
                 //"<a href='identity'>"
                 + industry_list[k]['industry'] + ', '
                 + industry_list[k]['industryID'] +
                 '</a></a></td>';
+
 
             tableBody += '</td>';
             tableBody += '</tr>';
@@ -136,12 +136,23 @@ function onByIndustryButtonClicked() {
         });
 }
 
-
-
 function onByIdentityButtonClicked() {
     console.log("helloagain")
 
-    myFunction();
+    function myFunction() {
+        var y = document.getElementById("industry_table_div");
+        if (y.style.display === "block"){
+            y.style.display = "none"
+        }
+
+        var x = document.getElementById("identity_table_div");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        }
+
+    }
+
+    myFunction()
     var url = getBaseURL() + '/identities/';
 
     // // Send the request to the Books API /authors/ endpoint
@@ -163,16 +174,11 @@ function onByIdentityButtonClicked() {
         // Build the table body.
         var tableBody = '';
         for (var k = 0; k < identity_list.length; k++) {
-            idArray = []
-            id = identity_list[k]['race_codes']
-            idArray.push(id);
             tableBody += '<tr>';
 
-            tableBody += '<td><a onclick="getIdentity(idArray.get(k))">'
-                //"<a href='identity'>"
+            tableBody += '<td><a onclick="getIdentity(' + "')\"><a href='industry'>"
                 + identity_list[k]['race'] + ', '
-                + identity_list[k]['race_codes'] +
-                '</a></a></td>';
+                + identity_list[k]['race_codes'] + '</a></a></td>';
 
             tableBody += '</td>';
             tableBody += '</tr>';
@@ -198,7 +204,8 @@ function getIdentity(industryID) {
 
     console.log(industryID.getAttribute("class"));
 
-    var url = getBaseURL() + '/industries/' + industryID.getAttribute("class");
+
+    var url = getBaseURL() + '/industries/' + industryID.getAttribute("class")
 
     fetch(url, {method: 'get'})
 
@@ -206,13 +213,13 @@ function getIdentity(industryID) {
 
 .then(function(identity_list) {
         var tableBody = '';
-        for (var k = 0; k < Object.keys(identity_list).length; k++) {
+        for (var k = 0; k < Object.keys(industry_list).length; k++) {
             tableBody += '<tr>';
             tableBody += '<td>' + identity_list[k]['race'] + '</td>';
             tableBody += '<td>' + identity_list[k]['race_codes'] + '</td>';
             tableBody += '</tr>';
         }
-        var resultsTableElement = document.getElementById('identity_table');
+        var resultsTableElement = document.getElementById('specific_id_table');
         if (resultsTableElement) {
             resultsTableElement.innerHTML = tableBody;
         }
