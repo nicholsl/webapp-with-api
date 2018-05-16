@@ -108,11 +108,11 @@ function onByIndustryButtonClicked() {
             id = industry_list[k]['industryID']
             tableBody += '<tr class='+id+'>';
 
-            tableBody += '<td><a class ='+id+' onclick="getIdentity(this.class)">'
+            tableBody += '<td><a class ='+id+' onclick="getIdentity(this)">'
             // idArray.push(id);
             tableBody += '<tr>';
 
-            tableBody += '<td><a class = '+id+' onclick="getIdentity(this.class)">'
+            tableBody += '<td><a class = '+id+' onclick="getIdentity(this)">'
                 //"<a href='identity'>"
                 + industry_list[k]['industry'] + ', '
                 + industry_list[k]['industryID'] + 
@@ -202,9 +202,10 @@ function getIdentity(industryID) {
     // repeating those comments here. Read through this code
     // and see if it makes sense to you.
 
-    console.log(industryID);
+    console.log(industryID.getAttribute("class"));
 
-    var url = getBaseURL() + '/industries/' + industryID;
+
+    var url = getBaseURL() + '/industries/' + industryID.getAttribute("class")
 
     fetch(url, {method: 'get'})
 
@@ -218,7 +219,7 @@ function getIdentity(industryID) {
                 tableBody += '<td>' + identity_list[k]['race_codes'] + '</td>';
                 tableBody += '</tr>';
             }
-            var resultsTableElement = document.getElementById('identity_table');
+            var resultsTableElement = document.getElementById('specific_id_table');
             if (resultsTableElement) {
                 resultsTableElement.innerHTML = tableBody;
             }
