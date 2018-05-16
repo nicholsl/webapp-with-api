@@ -159,7 +159,7 @@ function onByIdentityButtonClicked() {
 
           //tableBody += '<td><a class ='+id+' onclick="getIndustry(this)">'
           // idArray.push(id);
-          tableBody += '<tr><a onclick="getIndustry(this)">';
+          tableBody += '<tr><a class = '+id+' onclick="getIndustry(this)">';
 
           tableBody += '<td><a class = '+id+' onclick="getIndustry(this)">'
               //"<a href='identity'>"
