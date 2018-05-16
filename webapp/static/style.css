@@ -149,6 +149,10 @@ body{
     margin-left:20px;
 }
 
+#industry_numbers_table{
+    margin-left 500px;
+}
+
 table{
     overflow-y:scroll;
     height:500px;
