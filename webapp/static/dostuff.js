@@ -129,6 +129,8 @@ function onByIndustryButtonClicked() {
 function onByIdentityButtonClicked() {
     document.getElementById("industry_table_div").style.display = "none";
     document.getElementById("identity_table_div").style.display = "block";
+    document.getElementById("specific_id_table_div").style.display = "none";
+    document.getElementById("race_distribution_div").style.display = "none";
     console.log("helloagain")
 
     var url = getBaseURL() + '/identities/';
@@ -186,6 +188,8 @@ function getIdentity(industryID) {
 
     document.getElementById("industry_table_div").style.display = "none";
     document.getElementById("identity_table_div").style.display = "none";
+    document.getElementById("specific_id_table_div").style.display = "block";
+    document.getElementById("race_distribution_div").style.display = "none";
 
     // Very similar pattern to onAuthorsButtonClicked, so I'm not
     // repeating those comments here. Read through this code
@@ -227,6 +231,8 @@ function getIndustry(race_codes) {
 
     document.getElementById("industry_table_div").style.display = "none";
     document.getElementById("identity_table_div").style.display = "none";
+    document.getElementById("specific_id_table_div").style.display = "none";
+    document.getElementById("race_distribution_div").style.display = "block";
     // Very similar pattern to onAuthorsButtonClicked, so I'm not
     // repeating those comments here. Read through this code
     // and see if it makes sense to you.
