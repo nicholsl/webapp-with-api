@@ -193,7 +193,7 @@ function getIdentity(industryID) {
         .then((response) => response.json())
 
         .then(function(identity_list) {
-            var tableBody = '<tr><th>' + identityName + '</th></tr>';
+            var tableBody = '';
             for (var k = 0; k < identity_list.length; k++) {
                 tableBody += '<tr>';
                 tableBody += '<td>' + identity_list[k]['race'] + '</td>';
